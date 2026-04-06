@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Controller;
+namespace App\Controllers;
 
 use App\Core\Auth;
 use App\Core\Csrf;
@@ -22,7 +22,7 @@ class AdminAuthController
             'success' => Session::flash('success'),
             'csrfToken' => Csrf::token(),
             'pageTitle' => 'Admin Login',
-        ], 'layouts/admin_auth');
+        ], 'admin/layouts/admin_auth');
     }
 
     public function login(): void

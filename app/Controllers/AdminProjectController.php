@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Controller;
+namespace App\Controllers;
 
 use App\Core\Auth;
 use App\Core\Csrf;
 use App\Core\Session;
 use App\Core\View;
-use App\Model\CategoryModel;
-use App\Model\ProjectModel;
+use App\Models\CategoryModel;
+use App\Models\ProjectModel;
 
 class AdminProjectController
 {
@@ -29,7 +29,7 @@ class AdminProjectController
             'rows' => $this->projects->allForAdmin(),
             'success' => Session::flash('success'),
             'error' => Session::flash('error'),
-        ], 'layouts/admin');
+        ], 'admin/layouts/admin');
     }
 
     public function createForm(): void
@@ -42,7 +42,7 @@ class AdminProjectController
             'action' => '/admin/projects/create',
             'heading' => 'Add New Project',
             'error' => Session::flash('error'),
-        ], 'layouts/admin');
+        ], 'admin/layouts/admin');
     }
 
     public function create(): void
@@ -81,7 +81,7 @@ class AdminProjectController
             'action' => '/admin/projects/edit?id=' . $id,
             'heading' => 'Edit Project',
             'error' => Session::flash('error'),
-        ], 'layouts/admin');
+        ], 'admin/layouts/admin');
     }
 
     public function edit(int $id): void

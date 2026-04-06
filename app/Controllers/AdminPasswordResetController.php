@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Controller;
+namespace App\Controllers;
 
 use App\Core\Csrf;
 use App\Core\EmailJsMailer;
 use App\Core\Session;
 use App\Core\View;
-use App\Model\AdminModel;
-use App\Model\AdminPasswordResetModel;
+use App\Models\AdminModel;
+use App\Models\AdminPasswordResetModel;
 
 class AdminPasswordResetController
 {
@@ -31,7 +31,7 @@ class AdminPasswordResetController
             'success' => Session::flash('success'),
             'csrfToken' => Csrf::token(),
             'pageTitle' => 'Forgot Password',
-        ], 'layouts/admin_auth');
+        ], 'admin/layouts/admin_auth');
     }
 
     public function requestResetCode(): void
@@ -78,7 +78,7 @@ class AdminPasswordResetController
             'csrfToken' => Csrf::token(),
             'prefillEmail' => (string) ($_GET['email'] ?? ''),
             'pageTitle' => 'Reset Password',
-        ], 'layouts/admin_auth');
+        ], 'admin/layouts/admin_auth');
     }
 
     public function resetPassword(): void

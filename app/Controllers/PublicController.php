@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace App\Controller;
+namespace App\Controllers;
 
 use App\Core\Csrf;
 use App\Core\Session;
 use App\Core\View;
-use App\Model\AboutModel;
-use App\Model\CategoryModel;
-use App\Model\ProjectModel;
+use App\Models\AboutModel;
+use App\Models\CategoryModel;
+use App\Models\ProjectModel;
 
 class PublicController
 {
     public function home(): void
     {
-        View::render('public/home', [
+        View::render('user/home', [
             'activePage' => 'home',
         ]);
     }
@@ -24,7 +24,7 @@ class PublicController
     {
         $about = (new AboutModel())->first();
 
-        View::render('public/about', [
+        View::render('user/about', [
             'about' => $about,
             'activePage' => 'about',
         ]);
@@ -37,7 +37,7 @@ class PublicController
         $search = trim((string) ($_GET['search'] ?? ''));
         $projects = (new ProjectModel())->groupedByCategory($selectedCategoryId ?: null, $search);
 
-        View::render('public/projects', [
+        View::render('user/projects/index', [
             'categories' => $categories,
             'projects' => $projects,
             'selectedCategoryId' => $selectedCategoryId,
@@ -46,9 +46,23 @@ class PublicController
         ]);
     }
 
+    public function gallery(): void
+    {
+        View::render('user/gallery/index', [
+            'activePage' => 'gallery',
+        ]);
+    }
+
+    public function donate(): void
+    {
+        View::render('user/donate/index', [
+            'activePage' => 'donate',
+        ]);
+    }
+
     public function contact(): void
     {
-        View::render('public/contact', [
+        View::render('user/contact', [
             'contactSuccess' => Session::flash('success'),
             'contactError' => Session::flash('error'),
             'csrfToken' => Csrf::token(),

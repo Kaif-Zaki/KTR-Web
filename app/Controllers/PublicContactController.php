@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Controller;
+namespace App\Controllers;
 
 use App\Core\Csrf;
 use App\Core\EmailJsMailer;
 use App\Core\Session;
-use App\Model\ContactMessageModel;
+use App\Models\ContactMessageModel;
 
 class PublicContactController
 {

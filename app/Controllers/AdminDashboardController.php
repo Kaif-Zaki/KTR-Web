@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Controller;
+namespace App\Controllers;
 
 use App\Core\Auth;
 use App\Core\View;
-use App\Model\CategoryModel;
-use App\Model\ContactMessageModel;
-use App\Model\ProjectModel;
+use App\Models\CategoryModel;
+use App\Models\ContactMessageModel;
+use App\Models\ProjectModel;
 
 class AdminDashboardController
 {
@@ -21,6 +21,6 @@ class AdminDashboardController
             'projectCount' => (new ProjectModel())->count(),
             'unreadMessages' => (new ContactMessageModel())->unreadCount(),
             'categories' => (new CategoryModel())->all(),
-        ], 'layouts/admin');
+        ], 'admin/layouts/admin');
     }
 }

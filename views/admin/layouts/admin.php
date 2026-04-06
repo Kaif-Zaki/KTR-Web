@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel - <?= e((string) config('app.name')) ?></title>
-    <link rel="stylesheet" href="/public/assets/css/app.css">
+    <link rel="stylesheet" href="/public/css/app.css">
 </head>
 <body>
 <header class="site-header admin-header">
     <div class="wrap">
         <h1>Admin Panel</h1>
-        <?php $unreadCount = (new \App\Model\ContactMessageModel())->unreadCount(); ?>
+        <?php $unreadCount = (new \App\Models\ContactMessageModel())->unreadCount(); ?>
         <nav class="admin-nav">
             <a href="/admin">Dashboard</a>
             <a href="/admin/projects">Projects</a>

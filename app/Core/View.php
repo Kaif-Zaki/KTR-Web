@@ -8,7 +8,7 @@ use RuntimeException;
 
 class View
 {
-    public static function render(string $view, array $data = [], string $layout = 'layouts/main'): void
+    public static function render(string $view, array $data = [], string $layout = 'user/layouts/main'): void
     {
         $viewPath = __DIR__ . '/../../views/' . $view . '.php';
         $layoutPath = __DIR__ . '/../../views/' . $layout . '.php';

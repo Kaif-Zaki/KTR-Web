@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Core;
 
-use App\Model\AdminModel;
+use App\Models\AdminModel;
 
 class Auth
 {

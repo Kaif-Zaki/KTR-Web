@@ -23,14 +23,14 @@ spl_autoload_register(static function (string $class): void {
 
 date_default_timezone_set((string) config('app.timezone'));
 
-use App\Controller\AdminAuthController;
-use App\Controller\AdminDashboardController;
-use App\Controller\AdminMessageController;
-use App\Controller\AdminPasswordResetController;
-use App\Controller\AdminProfileController;
-use App\Controller\AdminProjectController;
-use App\Controller\PublicContactController;
-use App\Controller\PublicController;
+use App\Controllers\AdminAuthController;
+use App\Controllers\AdminDashboardController;
+use App\Controllers\AdminMessageController;
+use App\Controllers\AdminPasswordResetController;
+use App\Controllers\AdminProfileController;
+use App\Controllers\AdminProjectController;
+use App\Controllers\PublicContactController;
+use App\Controllers\PublicController;
 use App\Core\Session;
 
 Session::start();
@@ -59,6 +59,16 @@ if ($uri === '/about' && $method === 'GET') {
 
 if ($uri === '/projects' && $method === 'GET') {
     $public->projects();
+    exit;
+}
+
+if ($uri === '/gallery' && $method === 'GET') {
+    $public->gallery();
+    exit;
+}
+
+if ($uri === '/donate' && $method === 'GET') {
+    $public->donate();
     exit;
 }
 

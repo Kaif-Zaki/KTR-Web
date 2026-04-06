@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= e((string) config('app.name')) ?></title>
-    <link rel="stylesheet" href="/public/assets/css/app.css">
+    <link rel="stylesheet" href="/public/css/app.css">
 </head>
 <body>
 <header class="site-header">
@@ -14,6 +14,8 @@
             <a href="/" class="<?= ($activePage ?? '') === 'home' ? 'active' : '' ?>">Home</a>
             <a href="/about" class="<?= ($activePage ?? '') === 'about' ? 'active' : '' ?>">About</a>
             <a href="/projects" class="<?= ($activePage ?? '') === 'projects' ? 'active' : '' ?>">Projects</a>
+            <a href="/gallery" class="<?= ($activePage ?? '') === 'gallery' ? 'active' : '' ?>">Gallery</a>
+            <a href="/donate" class="<?= ($activePage ?? '') === 'donate' ? 'active' : '' ?>">Donate</a>
             <a href="/contact" class="<?= ($activePage ?? '') === 'contact' ? 'active' : '' ?>">Contact</a>
             <a class="admin-link" href="/admin/login">Admin Login</a>
         </nav>
