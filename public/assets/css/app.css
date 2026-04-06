@@ -52,6 +52,34 @@ body {
     letter-spacing: 0.01em;
 }
 
+.brand-link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.public-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    flex-wrap: wrap;
+}
+
+.public-nav a {
+    color: #eaf7ff;
+    text-decoration: none;
+    padding: 0.4rem 0.7rem;
+    border-radius: 999px;
+    font-weight: 700;
+}
+
+.public-nav a.active {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.public-nav .admin-link {
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
 .admin-link,
 .admin-nav a,
 .button-link,
@@ -337,12 +365,42 @@ th {
     gap: 0.7rem;
 }
 
+.home-links p {
+    margin: 0.3rem 0 0.7rem;
+}
+
+.message-layout {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1.1fr 1fr;
+}
+
+.message-meta p {
+    margin: 0.25rem 0;
+}
+
+.message-body {
+    background: #f8fbff;
+}
+
+.reply-item {
+    margin-bottom: 0.7rem;
+}
+
+.unread-row {
+    background: #f1f9ff;
+}
+
 @media (max-width: 920px) {
     .auth-shell {
         grid-template-columns: 1fr;
     }
 
     .profile-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .message-layout {
         grid-template-columns: 1fr;
     }
 }

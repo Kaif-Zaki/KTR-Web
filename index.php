@@ -25,9 +25,11 @@ date_default_timezone_set((string) config('app.timezone'));
 
 use App\Controller\AdminAuthController;
 use App\Controller\AdminDashboardController;
+use App\Controller\AdminMessageController;
 use App\Controller\AdminPasswordResetController;
 use App\Controller\AdminProfileController;
 use App\Controller\AdminProjectController;
+use App\Controller\PublicContactController;
 use App\Controller\PublicController;
 use App\Core\Session;
 
@@ -37,14 +39,36 @@ $uri = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
 $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
 
 $public = new PublicController();
+$publicContact = new PublicContactController();
 $auth = new AdminAuthController();
 $dashboard = new AdminDashboardController();
+$messages = new AdminMessageController();
 $passwordReset = new AdminPasswordResetController();
 $profile = new AdminProfileController();
 $projects = new AdminProjectController();
 
 if ($uri === '/' && $method === 'GET') {
     $public->home();
+    exit;
+}
+
+if ($uri === '/about' && $method === 'GET') {
+    $public->about();
+    exit;
+}
+
+if ($uri === '/projects' && $method === 'GET') {
+    $public->projects();
+    exit;
+}
+
+if ($uri === '/contact' && $method === 'GET') {
+    $public->contact();
+    exit;
+}
+
+if ($uri === '/contact' && $method === 'POST') {
+    $publicContact->submit();
     exit;
 }
 
@@ -90,6 +114,16 @@ if ($uri === '/admin' && $method === 'GET') {
 
 if ($uri === '/admin/projects' && $method === 'GET') {
     $projects->index();
+    exit;
+}
+
+if ($uri === '/admin/messages' && $method === 'GET') {
+    $messages->index();
+    exit;
+}
+
+if ($uri === '/admin/messages/reply' && $method === 'POST') {
+    $messages->reply();
     exit;
 }
 

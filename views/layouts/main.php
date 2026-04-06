@@ -9,8 +9,14 @@
 <body>
 <header class="site-header">
     <div class="wrap">
-        <h1><?= e((string) config('app.name')) ?></h1>
-        <a class="admin-link" href="/admin/login">Admin Login</a>
+        <h1><a class="brand-link" href="/"><?= e((string) config('app.name')) ?></a></h1>
+        <nav class="public-nav">
+            <a href="/" class="<?= ($activePage ?? '') === 'home' ? 'active' : '' ?>">Home</a>
+            <a href="/about" class="<?= ($activePage ?? '') === 'about' ? 'active' : '' ?>">About</a>
+            <a href="/projects" class="<?= ($activePage ?? '') === 'projects' ? 'active' : '' ?>">Projects</a>
+            <a href="/contact" class="<?= ($activePage ?? '') === 'contact' ? 'active' : '' ?>">Contact</a>
+            <a class="admin-link" href="/admin/login">Admin Login</a>
+        </nav>
     </div>
 </header>
 <main class="wrap">

@@ -10,9 +10,11 @@
 <header class="site-header admin-header">
     <div class="wrap">
         <h1>Admin Panel</h1>
+        <?php $unreadCount = (new \App\Model\ContactMessageModel())->unreadCount(); ?>
         <nav class="admin-nav">
             <a href="/admin">Dashboard</a>
             <a href="/admin/projects">Projects</a>
+            <a href="/admin/messages">Messages<?= $unreadCount > 0 ? ' (' . (int) $unreadCount . ')' : '' ?></a>
             <a href="/admin/profile">Profile</a>
             <a href="/">Public Site</a>
             <form method="post" action="/admin/logout" class="logout-form">

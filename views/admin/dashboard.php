@@ -4,5 +4,6 @@
     <div class="stats">
         <div><strong>Total Projects</strong><span><?= (int) $projectCount ?></span></div>
         <div><strong>Categories</strong><span><?= count($categories) ?></span></div>
+        <div><strong>Unread Messages</strong><span><?= (int) $unreadMessages ?></span></div>
     </div>
 </section>

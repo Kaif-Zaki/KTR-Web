@@ -6,7 +6,8 @@ function config(string $key): mixed
 {
     static $cache = [];
 
-    [$file, $item] = array_pad(explode('.', $key, 2), 2, null);
+    $segments = explode('.', $key);
+    $file = array_shift($segments);
 
     if (!isset($cache[$file])) {
         $path = __DIR__ . '/../../config/' . $file . '.php';
@@ -18,11 +19,21 @@ function config(string $key): mixed
         $cache[$file] = require $path;
     }
 
-    if ($item === null) {
+    if (empty($segments)) {
         return $cache[$file];
     }
 
-    return $cache[$file][$item] ?? null;
+    $value = $cache[$file];
+
+    foreach ($segments as $segment) {
+        if (!is_array($value) || !array_key_exists($segment, $value)) {
+            return null;
+        }
+
+        $value = $value[$segment];
+    }
+
+    return $value;
 }
 
 function url(string $path = '/'): string
