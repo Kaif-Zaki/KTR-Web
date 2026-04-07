@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS donations (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    donor_name VARCHAR(140) NOT NULL,
+    email VARCHAR(180) NOT NULL,
+    amount_lkr DECIMAL(12,2) NOT NULL,
+    project_id INT UNSIGNED NULL,
+    message TEXT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_donations_project FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE SET NULL
+);
