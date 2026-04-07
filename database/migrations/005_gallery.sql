@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS gallery (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    project_id INT UNSIGNED NULL,
+    image_path VARCHAR(255) NOT NULL,
+    caption VARCHAR(255) NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_gallery_project FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE SET NULL
+);
