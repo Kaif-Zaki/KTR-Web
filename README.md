@@ -3,7 +3,7 @@
 Modern PHP + MySQL web application for **Kottramulla United Welfare Society** with a public site, donation and membership workflows, and a complete admin panel.
 
 
-![KTR Banner](./kottramulla-website/public/images/home/banner.png)
+![KTR Banner](./public/images/home/banner.png)
 
 ---
 
