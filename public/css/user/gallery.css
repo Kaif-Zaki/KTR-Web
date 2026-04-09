@@ -1,0 +1,123 @@
+/* ═══════════════════════════════════════════════════════════
+   GALLERY PAGE - Premium Visual Records
+   ══════════════════════════════════════════════════════════ */
+
+.gallery-hero-section {
+    padding: 100px 24px 60px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.gallery-hero-section .page-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    color: var(--text-heading);
+    letter-spacing: -0.04em;
+    margin-bottom: 24px;
+}
+
+.gallery-hero-section .hero-lead {
+    font-size: 1.2rem;
+    color: var(--text-main);
+    max-width: 600px;
+    margin: 0 auto;
+    font-weight: 400;
+}
+
+/* ── Masonry Grid ── */
+.gallery-shell {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px 100px;
+}
+
+.gallery-masonry {
+    columns: 4;
+    column-gap: 24px;
+}
+
+@media (max-width: 1200px) { .gallery-masonry { columns: 3; } }
+@media (max-width: 900px) { .gallery-masonry { columns: 2; column-gap: 16px; } }
+@media (max-width: 500px) { .gallery-masonry { columns: 1; } }
+
+/* ── Gallery Item ── */
+.gallery-card {
+    break-inside: avoid;
+    margin-bottom: 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    overflow: hidden;
+    transition: var(--trans-slow);
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.gallery-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent);
+    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.05);
+}
+
+[data-theme="dark"] .gallery-card:hover {
+    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.4);
+}
+
+.gallery-visual {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.gallery-visual img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-card:hover .gallery-visual img {
+    transform: scale(1.08);
+}
+
+/* ── Info Overlay ── */
+.gallery-card-meta {
+    padding: 16px 20px 20px;
+    background: var(--surface);
+}
+
+.gallery-card-meta .caption {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-heading);
+    margin-bottom: 12px;
+    line-height: 1.45;
+}
+
+.gallery-card-meta .tag {
+    display: inline-flex;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ── Empty State ── */
+.empty-gallery-card {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 100px 40px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 32px;
+    color: var(--text-dim);
+}

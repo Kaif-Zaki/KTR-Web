@@ -1,0 +1,59 @@
+/* ═══════════════════════════════════════════════════════════
+   ADMIN MEMBERS CSS - Interactive Enhancements
+   ══════════════════════════════════════════════════════════ */
+
+.member-mini-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    object-fit: cover;
+    background: var(--surface-2);
+    border: 2px solid transparent;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.member-no-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--blue-glow);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.1rem;
+    border: 2px solid transparent;
+    transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.admin-table tr:hover .member-mini-avatar,
+.admin-table tr:hover .member-no-avatar {
+    transform: scale(1.15) rotate(4deg);
+    border-color: var(--primary);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+.admin-table tr:hover .member-no-avatar {
+    background: var(--primary);
+    color: #fff;
+}
+
+.member-platform-tag {
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 5px 10px;
+    border-radius: 8px;
+    background: var(--surface-2);
+    color: var(--text-light);
+    border: 1px solid var(--border-color);
+    text-transform: capitalize;
+    letter-spacing: 0.04em;
+    display: inline-flex;
+    transition: all 0.3s ease;
+}
+
+.admin-table tr:hover .member-platform-tag {
+    background: var(--blue-glow);
+    color: var(--primary);
+    border-color: rgba(59, 130, 246, 0.4);
+}

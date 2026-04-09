@@ -1,0 +1,111 @@
+<link rel="stylesheet" href="<?= url('/public/css/user/home.css') ?>">
+
+<!-- ═══════════════════════════════════════════════
+     HERO SECTION
+════════════════════════════════════════════════ -->
+<section class="home-hero">
+    <div class="hero-bloom"></div>
+    
+    <div class="hero-content">
+        <span class="hero-kicker"><?= e($settings['hero_kicker']) ?></span>
+        <h1 class="hero-title">
+            <?= nl2br(e($settings['hero_title'])) ?> 
+            <?php if (!empty($settings['hero_subtitle'])): ?>
+                <br><span class="dim"><?= e($settings['hero_subtitle']) ?></span>
+            <?php endif; ?>
+        </h1>
+        <p class="hero-lead">
+            <?= e($settings['hero_lead']) ?>
+        </p>
+        
+        <div class="hero-actions">
+            <a href="<?= url('/projects') ?>" class="btn-primary-home">View Our Projects</a>
+            <a href="<?= url('/about') ?>" class="btn-ghost-home">Our Story</a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     ABOUT / LEGACY SECTION
+     ════════════════════════════════════════════════ -->
+<section class="section-wrapper reveal">
+    <div class="grid-2">
+        
+        <div class="image-frame">
+            <?php if ($settings['legacy_image']): ?>
+                <img src="<?= url('/public/images/home/' . $settings['legacy_image']) ?>" alt="Our Legacy" style="width: 100%; height: 100%; object-fit: cover;">
+            <?php else: ?>
+                <div class="image-placeholder"></div>
+            <?php endif; ?>
+        </div>
+
+        <div class="content-block">
+            <span class="hero-kicker"><?= e($settings['legacy_kicker']) ?></span>
+            <h2><?= $settings['legacy_title'] ?></h2>
+            <p>
+                <?= e($settings['legacy_body']) ?>
+            </p>
+
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <span class="stat-num"><?= e($settings['stat1_num']) ?></span>
+                    <span class="stat-label"><?= e($settings['stat1_label']) ?></span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-num"><?= e($settings['stat2_num']) ?></span>
+                    <span class="stat-label"><?= e($settings['stat2_label']) ?></span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     INITIATIVES SECTION
+     ════════════════════════════════════════════════ -->
+<section class="section-wrapper reveal" style="padding-top: 0;">
+    <div style="text-align: center; max-width: 700px; margin: 0 auto 64px;">
+        <span class="hero-kicker"><?= e($settings['initiatives_kicker']) ?></span>
+        <h2 style="font-family: var(--font-heading); font-size: 3rem; font-weight: 800; color: var(--text-heading); letter-spacing: -0.04em;"><?= e($settings['initiatives_title']) ?></h2>
+        <p style="font-size: 1.1rem; color: var(--text-main); font-weight: 400; line-height: 1.6;">
+            <?= e($settings['initiatives_lead']) ?>
+        </p>
+    </div>
+
+    <div class="feature-grid">
+        <?php foreach ($features as $feature): ?>
+            <div class="feature-card">
+                <div class="feature-icon"><?= e($feature['icon']) ?></div>
+                <h3 class="feature-title"><?= e($feature['title']) ?></h3>
+                <p class="feature-desc"><?= e($feature['description']) ?></p>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     FINAL CTA / VISION
+     ════════════════════════════════════════════════ -->
+<section class="section-wrapper reveal" style="padding-top: 40px;">
+    <div class="cta-banner">
+        <div class="cta-glow"></div>
+        
+        <h2><?= e($settings['cta_title']) ?></h2>
+        <p><?= e($settings['cta_body']) ?></p>
+        
+        <div style="display: flex; gap: 16px; justify-content: center; position: relative; z-index: 5;">
+            <a href="<?= url('/projects') ?>" class="btn-primary-home">Browse Projects</a>
+            <a href="<?= url('/contact') ?>" class="btn-ghost" style="color: #ffffff; border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.05);">Contact Us</a>
+        </div>
+    </div>
+</section>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { 
+            if (entry.isIntersecting) entry.target.classList.add('active'); 
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>

@@ -1,0 +1,91 @@
+/* ═══════════════════════════════════════════════════════════
+   ADMIN PROJECTS CSS - Premium Interactions
+   ══════════════════════════════════════════════════════════ */
+
+/* Project Specifics for Table */
+.proj-category-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    background: var(--blue-glow);
+    color: var(--primary);
+    font-size: 0.72rem;
+    font-weight: 800;
+    border-radius: 8px;
+    text-transform: capitalize;
+    letter-spacing: 0.05em;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    transition: all 0.3s ease;
+}
+
+.admin-table tr:hover .proj-category-chip {
+    background: var(--primary);
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.photo-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    transition: all 0.3s ease;
+}
+
+.photo-badge--sent { 
+    background: rgba(16, 185, 129, 0.1);  
+    color: #10b981; 
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+.photo-badge--pending { 
+    background: rgba(245, 158, 11, 0.1);  
+    color: #f59e0b; 
+    border: 1px solid rgba(245, 158, 11, 0.2);
+}
+.photo-badge--none { 
+    background: var(--surface-2); 
+    color: var(--text-light); 
+    border: 1px solid var(--border-color);
+}
+
+.admin-table tr:hover .photo-badge {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.proj-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.admin-table tr:hover .proj-actions {
+    opacity: 1;
+}
+
+/* Enhancing the table from ui.css for specifically the projects page context */
+.table-card {
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.table-card:hover {
+    box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+    border-color: var(--primary);
+}
+
+.admin-table tr td {
+    transition: background 0.3s ease, padding-left 0.3s ease;
+}
+
+.admin-table tr:hover td:first-child {
+    padding-left: 28px;
+    color: var(--primary);
+}
+
+.admin-table tr:hover td {
+    background: var(--blue-glow);
+}

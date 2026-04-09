@@ -1,0 +1,127 @@
+/* ═══════════════════════════════════════════════════════════
+   ABOUT PAGE - Premium Narrative Styles
+   ══════════════════════════════════════════════════════════ */
+
+.about-page-wrapper {
+    max-width: 900px;
+    margin: 40px auto 120px;
+    padding: 0 24px;
+}
+
+.about-hero {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.about-hero .page-title {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 7vw, 5rem);
+    font-weight: 800;
+    color: var(--text-heading);
+    letter-spacing: -0.04em;
+    margin-bottom: 24px;
+}
+
+/* ── Content Card ── */
+.about-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 48px;
+    padding: 80px;
+    box-shadow: var(--nav-pill-sh);
+    position: relative;
+    overflow: hidden;
+}
+
+.about-card .section-title {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--text-heading);
+    margin-bottom: 32px;
+    line-height: 1.2;
+}
+
+.about-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-main);
+    font-weight: 400;
+}
+.about-text p { margin-bottom: 24px; }
+
+/* ── Narrative Elements ── */
+.quote-box {
+    margin: 60px 0;
+    padding: 40px;
+    background: var(--bg-page);
+    border-radius: 32px;
+    border: 1px solid var(--border);
+    position: relative;
+    text-align: center;
+}
+
+.quote-box::before {
+    content: '"';
+    position: absolute;
+    top: -20px; left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-heading);
+    font-size: 6rem;
+    color: var(--accent-hover);
+    opacity: 0.1;
+    line-height: 1;
+}
+
+.quote-content {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-heading);
+    font-style: italic;
+    line-height: 1.4;
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Stats ── */
+.about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 60px;
+    padding-top: 60px;
+    border-top: 1px solid var(--border);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-item label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 8px;
+}
+
+.stat-item span {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--accent);
+}
+
+@media (max-width: 768px) {
+    .about-card { padding: 48px 32px; border-radius: 32px; }
+    .about-card .section-title { font-size: 1.8rem; }
+    .about-text { font-size: 1.1rem; }
+    .quote-content { font-size: 1.3rem; }
+}
+
+@media (max-width: 500px) {
+    .about-stats { grid-template-columns: 1fr; }
+}
