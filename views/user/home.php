@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<?= url('/public/css/user/home.css') ?>">
+<link rel="stylesheet" href="<?= asset_url('/public/css/user/home.css') ?>">
 
 <!-- ═══════════════════════════════════════════════
      HERO SECTION
@@ -64,13 +64,11 @@
 <!-- ═══════════════════════════════════════════════
      INITIATIVES SECTION
      ════════════════════════════════════════════════ -->
-<section class="section-wrapper reveal" style="padding-top: 0;">
-    <div style="text-align: center; max-width: 700px; margin: 0 auto 64px;">
+<section class="section-wrapper reveal">
+    <div class="initiatives-header">
         <span class="hero-kicker"><?= e($settings['initiatives_kicker']) ?></span>
-        <h2 style="font-family: var(--font-heading); font-size: 3rem; font-weight: 800; color: var(--text-heading); letter-spacing: -0.04em;"><?= e($settings['initiatives_title']) ?></h2>
-        <p style="font-size: 1.1rem; color: var(--text-main); font-weight: 400; line-height: 1.6;">
-            <?= e($settings['initiatives_lead']) ?>
-        </p>
+        <h2><?= e($settings['initiatives_title']) ?></h2>
+        <p><?= e($settings['initiatives_lead']) ?></p>
     </div>
 
     <div class="feature-grid reveal reveal-stagger">
@@ -104,16 +102,15 @@
 <!-- ═══════════════════════════════════════════════
      FINAL CTA / VISION
      ════════════════════════════════════════════════ -->
-<section class="section-wrapper reveal" style="padding-top: 40px;">
+<section class="section-wrapper cta-section">
     <div class="cta-banner">
         <div class="cta-glow"></div>
         
         <h2><?= e($settings['cta_title']) ?></h2>
         <p><?= e($settings['cta_body']) ?></p>
         
-        <div style="display: flex; gap: 16px; justify-content: center; position: relative; z-index: 5;">
+        <div class="cta-actions">
             <a href="<?= url('/projects') ?>" class="btn-primary-home">Browse Projects</a>
-            <!-- <a href="<?= url('/contact') ?>" class="btn-ghost" style="color: #ffffff; border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.05);">Contact Us</a> -->
         </div>
     </div>
 </section>

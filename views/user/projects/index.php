@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<?= url('/public/css/user/projects.css') ?>">
+<link rel="stylesheet" href="<?= asset_url('/public/css/user/projects.css') ?>">
 
 <!-- ── HERO ── -->
 <section class="projects-hero-section">

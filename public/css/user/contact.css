@@ -239,16 +239,82 @@
 
 /* ── Responsive ── */
 @media (max-width: 960px) {
+    .contact-page-wrapper {
+        padding: 40px 18px 36px;
+        min-height: auto;
+    }
+
     .contact-container {
         grid-template-columns: 1fr;
-        gap: 60px;
+        gap: 34px;
     }
+
     .contact-info { text-align: center; }
-    .page-sub { margin-left: auto; margin-right: auto; }
-    .contact-methods { align-items: center; }
+
+    .page-sub {
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 32px;
+        font-size: 1rem;
+    }
+
+    .contact-methods {
+        gap: 18px;
+        align-items: stretch;
+        margin-bottom: 32px;
+    }
+
+    .method-item {
+        width: 100%;
+        max-width: 440px;
+        margin: 0 auto;
+        text-align: left;
+        gap: 14px;
+    }
+
+    .method-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        flex-shrink: 0;
+    }
+
     .social-links { justify-content: center; }
 }
 
 @media (max-width: 580px) {
-    .contact-form-card { padding: 32px 24px; }
+    .contact-page-wrapper {
+        padding: 28px 12px 26px;
+    }
+
+    .contact-info .page-title {
+        font-size: clamp(1.9rem, 9vw, 2.3rem);
+        margin-bottom: 14px;
+    }
+
+    .contact-form-card {
+        padding: 24px 16px;
+        border-radius: 20px;
+    }
+
+    .form-actual {
+        gap: 18px;
+    }
+
+    .input-group input,
+    .input-group textarea {
+        padding: 12px 14px;
+        font-size: 0.95rem;
+    }
+
+    .btn-submit {
+        width: 100%;
+        padding: 14px 16px;
+    }
+
+    .whatsapp-quick-link {
+        width: 100%;
+        font-size: 0.85rem;
+        padding: 12px;
+    }
 }

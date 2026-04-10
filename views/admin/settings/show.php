@@ -61,11 +61,21 @@
             <legend>Logo & Favicon</legend>
 
             <div class="form-group">
-                <label for="logo">Website Logo</label>
+                <label for="logo">Website Logo 📷</label>
+                <div class="requirement-box">
+                    <strong>📋 Requirements:</strong>
+                    <ul>
+                        <li>Minimum size: <strong>200x50 pixels</strong></li>
+                        <li>Recommended size: <strong>400x150 pixels</strong> or <strong>600x200 pixels</strong></li>
+                        <li>Aspect ratio: Between 1:1 and 4:1 (width:height)</li>
+                        <li>Maximum file size: <strong>2MB</strong></li>
+                        <li>Format: JPG, PNG, GIF, or SVG</li>
+                    </ul>
+                </div>
                 <?php if (!empty($settings['logo_path'])): ?>
                     <div class="image-preview">
-                        <img src="<?php echo url('/public/' . htmlspecialchars($settings['logo_path'])); ?>" alt="Current Logo">
-                        <small>Current Logo</small>
+                        <img src="<?php echo url('/public/' . htmlspecialchars($settings['logo_path'])); ?>" alt="Current Logo" class="preview-logo">
+                        <small>✓ Current Logo</small>
                     </div>
                 <?php endif; ?>
                 <input 
@@ -73,27 +83,38 @@
                     id="logo"
                     name="logo"
                     accept="image/*"
+                    class="file-input"
                 >
-                <small>Upload a new logo (JPG, PNG, GIF, SVG recommended)</small>
+                <small class="help-text">⚠️ If image doesn't meet requirements, it will not be uploaded. Please ensure your image meets all the requirements above.</small>
             </div>
 
             <div class="form-group">
-                <label for="logo_alt_text">Logo Alt Text</label>
+                <label for="logo_alt_text">Logo Alt Text (for accessibility)</label>
                 <input 
                     type="text" 
                     id="logo_alt_text"
                     name="logo_alt_text"
                     value="<?php echo htmlspecialchars($settings['logo_alt_text'] ?? ''); ?>"
-                    placeholder="Logo alt text for accessibility"
+                    placeholder="e.g., Kottramulla United Welfare Society Logo"
                 >
             </div>
 
             <div class="form-group">
-                <label for="favicon">Favicon</label>
+                <label for="favicon">Favicon 🔗</label>
+                <div class="requirement-box">
+                    <strong>📋 Requirements:</strong>
+                    <ul>
+                        <li>Size: <strong>Must be square</strong> (same width and height)</li>
+                        <li>Minimum size: <strong>64x64 pixels</strong></li>
+                        <li>Recommended size: <strong>256x256 pixels</strong> or <strong>512x512 pixels</strong></li>
+                        <li>Maximum file size: <strong>512KB</strong></li>
+                        <li>Format: PNG or ICO (SVG supported)</li>
+                    </ul>
+                </div>
                 <?php if (!empty($settings['favicon_path'])): ?>
                     <div class="image-preview">
-                        <img src="<?php echo url('/public/' . htmlspecialchars($settings['favicon_path'])); ?>" alt="Current Favicon" style="max-width: 64px;">
-                        <small>Current Favicon</small>
+                        <img src="<?php echo url('/public/' . htmlspecialchars($settings['favicon_path'])); ?>" alt="Current Favicon" class="preview-favicon">
+                        <small>✓ Current Favicon</small>
                     </div>
                 <?php endif; ?>
                 <input 
@@ -101,8 +122,9 @@
                     id="favicon"
                     name="favicon"
                     accept="image/*"
+                    class="file-input"
                 >
-                <small>Upload favicon (ICO, PNG, or SVG - 32x32px recommended)</small>
+                <small class="help-text">⚠️ Favicon must be square! If image doesn't meet requirements, it will not be uploaded.</small>
             </div>
         </fieldset>
 
@@ -385,12 +407,76 @@
         max-height: 200px;
         margin-bottom: 8px;
         border-radius: 4px;
+        object-fit: contain;
+    }
+
+    .image-preview img.preview-logo {
+        width: min(280px, 100%);
+        max-height: 72px;
+        display: block;
+    }
+
+    .image-preview img.preview-favicon {
+        width: 64px;
+        height: 64px;
+        display: block;
     }
 
     .image-preview small {
         display: block;
         color: #6b7280;
         font-size: 12px;
+    }
+
+    .requirement-box {
+        background: #fef3c7;
+        border: 1px solid #fcd34d;
+        border-radius: 6px;
+        padding: 14px;
+        margin-bottom: 14px;
+        font-size: 13px;
+        color: #92400e;
+    }
+
+    .requirement-box strong {
+        display: block;
+        margin-bottom: 8px;
+        color: #b45309;
+        font-size: 14px;
+    }
+
+    .requirement-box ul {
+        list-style: disc;
+        padding-left: 20px;
+        margin: 0;
+    }
+
+    .requirement-box li {
+        margin-bottom: 4px;
+        line-height: 1.4;
+    }
+
+    .help-text {
+        display: block !important;
+        background: #fee2e2;
+        color: #7f1d1d;
+        padding: 8px 10px;
+        border-radius: 4px;
+        margin-top: 8px;
+        font-size: 12px;
+        border-left: 3px solid #ef4444;
+    }
+
+    .file-input {
+        border: 2px dashed #d1d5db !important;
+        background: #f9fafb !important;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .file-input:hover {
+        border-color: #60a5fa !important;
+        background: #eff6ff !important;
     }
 
     .form-actions {

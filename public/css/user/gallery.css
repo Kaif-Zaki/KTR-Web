@@ -40,7 +40,22 @@
 
 @media (max-width: 1200px) { .gallery-masonry { columns: 3; } }
 @media (max-width: 900px) { .gallery-masonry { columns: 2; column-gap: 16px; } }
-@media (max-width: 500px) { .gallery-masonry { columns: 1; } }
+@media (max-width: 500px) {
+    .gallery-hero-section {
+        padding: 60px 14px 28px;
+    }
+
+    .gallery-shell {
+        padding: 0 14px 40px;
+    }
+
+    .gallery-masonry { columns: 1; }
+
+    .gallery-card {
+        border-radius: 18px;
+        margin-bottom: 14px;
+    }
+}
 
 /* ── Gallery Item ── */
 .gallery-card {

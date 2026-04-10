@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<?= url('/public/css/user/about.css') ?>">
+<link rel="stylesheet" href="<?= asset_url('/public/css/user/about.css') ?>">
 
 <div class="about-page-wrapper">
     

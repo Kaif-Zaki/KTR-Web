@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<?= url('/public/css/user/members.css') ?>">
+<link rel="stylesheet" href="<?= asset_url('/public/css/user/members.css') ?>">
 
 <div class="member-show-wrapper">
     
@@ -26,4 +26,3 @@
         </div>
     </div>
 </div>
-

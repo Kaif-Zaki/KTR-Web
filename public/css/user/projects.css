@@ -196,8 +196,22 @@
 .project-card:hover .btn-card-details { gap: 10px; }
 
 @media (max-width: 600px) {
+    .projects-hero-section {
+        padding: 60px 14px 28px;
+    }
+
+    .project-sections-container {
+        padding: 0 14px 44px;
+    }
+
     .filter-glass-pill { flex-direction: column; border-radius: 24px; padding: 16px; gap: 12px; }
     .filter-category-select { border: 1px solid var(--border); border-radius: 12px; padding: 12px; width: 100%; }
+    .search-input-field { width: 100%; padding: 12px 14px; }
     .btn-search-trigger { width: 100%; border-radius: 12px; }
     .projects-flex-grid { grid-template-columns: 1fr; }
+
+    .project-card {
+        border-radius: 22px;
+        padding: 18px 14px;
+    }
 }

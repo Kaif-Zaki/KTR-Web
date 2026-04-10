@@ -1,0 +1,653 @@
+{
+  "analysis_metadata": {
+    "total_files_analyzed": 20,
+    "analysis_date": "2024-04-10",
+    "workspace": "/Users/kaifzaki/Developer/Oncode/welfare-web/public/css"
+  },
+  "file_analysis": {
+    "app.css": {
+      "lines": 2047,
+      "purpose": "Master stylesheet consolidating user views and global styles - includes hero section, animations, navbar, projects grid, gallery, contact form, footer, and admin extracted styles",
+      "color_values": [
+        "#ec4899 (primary-pink)",
+        "#4ade80 (primary-green)",
+        "#1f2937 (text-dark)",
+        "#9ca3af (text-muted)",
+        "#ffffff (bg-white)",
+        "#f9fafb (bg-light)",
+        "#f3f4f6 (border-light)",
+        "#6b7280 (gray-500)",
+        "#111827 (almost-black)",
+        "#10b981 (emerald)",
+        "#f87171 (red-400)",
+        "#dbeafe (blue-100)"
+      ],
+      "mobile_issues": [
+        "✓ GOOD: Extensive media queries for 768px, 1024px, 1100px breakpoints",
+        "✓ GOOD: Uses clamp() for responsive font sizing",
+        "✓ GOOD: Flexible grid with auto-fill/auto-fit"
+      ],
+      "duplicate_rules": [
+        "Multiple .stat-pill definitions across sections",
+        "Repeated .page-shell and layout containers",
+        ".alert styles defined multiple times with variations",
+        ".btn-submit defined 3+ times with different contexts"
+      ],
+      "outdated_rules": [
+        ".hero-left::before - complex bloom animation that performs poorly",
+        "Legacy .nav-toggle with inline margin setup",
+        "Unused .ambient-glow positioning"
+      ],
+      "naming_convention_issues": [
+        "Inconsistent: .hero-headline vs .page-title vs .proj-title",
+        "Multiple naming patterns for cards: .project-card, .stat-card, .admin-card",
+        "Prefix usage varies: 'proj-', 'dash-', 'sb-' for different contexts"
+      ]
+    },
+    "admin/auth.css": {
+      "lines": 115,
+      "purpose": "Premium authentication page styles with brand side and form side layout",
+      "color_values": [
+        "#fcfaf6 (auth-bg-light)",
+        "#1a1a1a (auth-brand)",
+        "#2563eb (auth-accent-blue)",
+        "#1e293b (auth-text)",
+        "#64748b (auth-text-dim)",
+        "#e2e8f0 (auth-border)",
+        "#0a0a0c (auth-bg-dark)",
+        "#000000 (auth-brand-dark)",
+        "#3b82f6 (auth-accent-bright)",
+        "#f8fafc (auth-text-light)"
+      ],
+      "mobile_issues": [
+        "✓ GOOD: Responsive grid layout (max-width: 900px shows single column)",
+        "✓ GOOD: Proper padding adjustments for mobile"
+      ],
+      "duplicate_rules": [
+        ".auth-footer a styling repeated",
+        ".input-wrapper definitions partially repeated"
+      ],
+      "outdated_rules": [],
+      "naming_convention_issues": [
+        "Using --auth- prefix is good but inconsistent with rest of codebase",
+        ".brand-side/.form-side naming could be more semantic"
+      ]
+    },
+    "admin/dashboard.css": {
+      "lines": 412,
+      "purpose": "Admin dashboard with welcome banner, stats grid, cards, and interactive elements",
+      "color_values": [
+        "#0f172a (text-heading-dark)",
+        "#94a3b8 (text-light-dark)",
+        "#f3f4f6 (body-bg-light)",
+        "#10b981 (emerald)",
+        "#2563eb (primary-blue)",
+        "#6366f1 (indigo)",
+        "#a855f7 (purple)",
+        "#ef4444 (red)",
+        "#059669 (teal)",
+        "#ffb800 (amber)"
+      ],
+      "mobile_issues": [
+        "✓ GOOD: Proper responsive grid (grid-template-columns changes)",
+        "✓ GOOD: Media query at 1024px for layout shifts",
+        "✓ GOOD: Flexible sizing for stat cards"
+      ],
+      "duplicate_rules": [
+        ".dash-stat-trend colors defined but similar patterns elsewhere",
+        ".attention-card and .dash-stat-card--alert use different approaches"
+      ],
+      "outdated_rules": [
+        ".gfx-circle-1/2 with drop-shadow animations (performance concern)"
+      ],
+      "naming_convention_issues": [
+        "Mix of --surface, --border-color, --text-heading variable names",
+        ".dash-stat-icon--teal/blue/purple/indigo could use consistent naming"
+      ]
+    },
+    "admin/forms.css": {
+      "lines": 35,
+      "purpose": "Admin form components with card styling and input enhancements",
+      "color_values": [],
+      "mobile_issues": [
+        "✓ GOOD: Responsive form-grid with auto-fit"
+      ],
+      "duplicate_rules": [
+        ".admin-card styling overlaps with ui.css",
+        ".form-section-title border-bottom similar to other sections"
+      ],
+      "outdated_rules": [],
+      "naming_convention_issues": [
+        "Should use consistent --blue-glow variable instead of hardcoding"
+      ]
+    },
+    "admin/gallery.css": {
+      "lines": 205,
+      "purpose": "Gallery card grid with image preview overlay and action buttons",
+      "color_values": [
+        "#e2e8f0 (border-dashed)",
+        "#f8fafc (bg-light)",
+        "#f1f5f9 (surface-2)",
+        "#0f172a (dark-overlay)",
+        "#94a3b8 (text-gray)",
+        "#ef4444 (delete-red)",
+        "#ffffff (white-btn)"
+      ],
+      "mobile_issues": [
+        "✓ GOOD: grid-template-columns auto-fill responsive",
+        "⚠ CONCERN: No explicit media query for mobile - relies on auto-fill"
+      ],
+      "duplicate_rules": [
+        ".gal-card hover transform similar to project cards",
+        ".gal-btn-edit/.gal-btn-delete repeat styling from app.css"
+      ],
+      "outdated_rules": [],
+      "naming_convention_issues": [
+        "Naming is consistent with 'gal-' prefix (good)"
+      ]
+    },
+    "admin/home_editor.css": {
+      "lines": 320,
+      "purpose": "Home page editor with left panels and right live preview",
+      "color_values": [
+        "#3b82f6 (primary-blue)",
+        "#2563eb (primary-hover)",
+        "#0f172a (text-dark)",
+        "#ef4444 (delete-red)",
+        "#ffffff (white-borders)"
+      ],
+      "mobile_issues": [
+        "✓ GOOD: Split layout converts to single column at 1200px",
+        "✓ GOOD: Height management (calc(100vh - 100px))",
+        "⚠ CONCERN: Fixed heights may cause issues on smaller screens"
+      ],
+      "duplicate_rules": [
+        ".form-input styling repeated from ui.css",
+        ".btn styles similar to other buttons"
+      ],
+      "outdated_rules": [
+        ".editor-panels::-webkit-scrollbar custom styling (less needed now)"
+      ],
+      "naming_convention_issues": [
+        "Good use of .editor-, .preview-, .feature- prefixes"
+      ]
+    },
+    "admin/layout.css": {
+      "lines": 527,
+      "purpose": "Core admin layout with floating 3D frosted glass sidebar, theme system, and responsive shell",
+      "color_values": [
+        "#3b82f6 (blue-500)",
+        "#2563eb (blue-600)",
+        "#1d4ed8 (blue-700)",
+        "#080c16 (dark-bg)",
+        "#10182c (surface-dark)",
+        "#16213e (surface-2-dark)",
+        "#e8edf4 (text-light)",
+        "#dbeafe (blue-100)",
+        "#eff6ff (blue-50)",
+        "#e0eeff (blue-100)"
+      ],
+      "mobile_issues": [
+        "✓ GOOD: Complete mobile transformation at 1024px",
+        "✓ GOOD: Fixed sidebar becomes overlay on mobile",
+        "✓ GOOD: Proper topbar handling"
+      ],
+      "duplicate_rules": [
+        "CSS variables redefined for theme when could reuse from others",
+        ".sidebar and .sidebar-inner styling partially overlap"
+      ],
+      "outdated_rules": [],
+      "naming_convention_issues": [
+        "Excellent consistent naming with --sb- prefix for sidebar variables",
+        "Good separation of --transition timing"
+      ]
+    },
+    "admin/members.css": {
+      "lines": 53,
+      "purpose": "Member avatar and platform tag styling for tables",
+      "color_values": [
+        "#ffffff (blue-glow-bg)",
+        "#94a3b8 (text-light)"
+      ],
+      "mobile_issues": [
+        "✓ GOOD: Uses semantic sizing (44px)"
+      ],
+      "duplicate_rules": [
+        "Avatar styling similar to other pages"
+      ],
+      "outdated_rules": [],
+      "naming_convention_issues": [
+        "Good use of .member- prefix"
+      ]
+    },
+    "admin/messages.css": {
+      "lines": 328,
+      "purpose": "Two-column inbox layout with message list and detail panel",
+      "color_values": [
+        "#3b82f6 (primary-blue)",
+        "#0f172a (dark-text)",
+        "#94a3b8 (text-dim)",
+        "#1e293b (surface)",
+        "#f1f5f9 (surface-2)",
+        "#ef4444 (red-alert)"
+      ],
+      "mobile_issues": [
+        "✓ GOOD: Grid collapses at 900px to single column",
+        "✓ GOOD: Max-height responsive on messages list"
+      ],
+      "duplicate_rules": [
+        ".msg-detail-avatar similar to other avatar definitions",
+        ".msg-reply-ta styling partially duplicate"
+      ],
+      "outdated_rules": [],
+      "naming_convention_issues": [
+        "Good .msg- prefix convention"
+      ]
+    },
+    "admin/profile.css": {
+      "lines": 251,
+      "purpose": "Admin profile page with header, ID card, and form grid",
+      "color_values": [
+        "#3b82f6 (primary-blue)",
+        "#a855f7 (purple-accent)",
+        "#16b981 (green-status)"
+      ],
+      "mobile_issues": [
+        "✓ GOOD: Grid adjustments at 900px"
+      ],
+      "duplicate_rules": [
+        ".interactive-card similar to dashboard",
+        ".form-group styling repeats"
+      ],
+      "outdated_rules": [],
+      "naming_convention_issues": [
+        "Good semantic naming"
+      ]
+    },
+    "admin/projects.css": {
+      "lines": 72,
+      "purpose": "Project category chips and photo badges for table display",
+      "color_values": [
+        "#10b981 (green-sent)",
+        "#f59e0b (amber-pending)",
+        "#3b82f6 (blue-hover)"
+      ],
+      "mobile_issues": [
+        "✓ GOOD: No fixed widths"
+      ],
+      "duplicate_rules": [
+        "Extensive duplication from ui.css and app.css table styles"
+      ],
+      "outdated_rules": [],
+      "naming_convention_issues": [
+        "Good use of .proj- and .photo-badge- prefixes"
+      ]
+    },
+    "admin/ui.css": {
+      "lines": 184,
+      "purpose": "Common admin UI components - alerts, tables, buttons, forms",
+      "color_values": [
+        "#16a34a (success-green)",
+        "#ef4444 (error-red)",
+        "#3b82f6 (primary-blue)",
+        "#f1f5f9 (surface-2)"
+      ],
+      "mobile_issues": [
+        "✓ GOOD: Flexible button sizing"
+      ],
+      "duplicate_rules": [
+        ".admin-input, .admin-select, .admin-textarea defined with overlapping rules",
+        ".btn-primary-admin focus states repeat across files"
+      ],
+      "outdated_rules": [],
+      "naming_convention_issues": [
+        "Good -admin suffix for semantic clarity"
+      ]
+    },
+    "user/about.css": {
+      "lines": 65,
+      "purpose": "About page with narrative elements, quote box, and stats",
+      "color_values": [
+        "#accent (variable)",
+        "#text-heading (variable)",
+        "#text-main (variable)"
+      ],
+      "mobile_issues": [
+        "✓ GOOD: Responsive padding and grid",
+        "✓ GOOD: Media queries at 768px and 500px"
+      ],
+      "duplicate_rules": [],
+      "outdated_rules": [],
+      "naming_convention_issues": [
+        "Uses CSS variables consistently"
+      ]
+    },
+    "user/contact.css": {
+      "lines": 225,
+      "purpose": "Contact page split layout with info and form card with glass morphism",
+      "color_values": [
+        "#25d366 (whatsapp-green)",
+        "#3b82f6 (primary-blue)",
+        "#128c7e (whatsapp-hover)"
+      ],
+      "mobile_issues": [
+        "✓ GOOD: Grid-template-columns changes at 960px",
+        "✓ GOOD: Padding adjustments at 580px"
+      ],
+      "duplicate_rules": [
+        ".contact-bloom similar to home-hero bloom"
+      ],
+      "outdated_rules": [],
+      "naming_convention_issues": [
+        "Good semantic naming with .contact-, .method-, .social- prefixes"
+      ]
+    },
+    "user/gallery.css": {
+      "lines": 113,
+      "purpose": "Gallery masonry layout with image cards and metadata",
+      "color_values": [],
+      "mobile_issues": [
+        "✓ GOOD: Responsive columns (4 → 3 → 2 → 1)",
+        "✓ GOOD: Media queries at 1200px, 900px, 500px"
+      ],
+      "duplicate_rules": [
+        ".gallery-card similar to member-card patterns"
+      ],
+      "outdated_rules": [],
+      "naming_convention_issues": [
+        "Good .gallery- prefix consistency"
+      ]
+    },
+    "user/home.css": {
+      "lines": 378,
+      "purpose": "Home page hero, features, stats, initiatives, and CTA sections",
+      "color_values": [
+        "#3b82f6 (accent-blue)",
+        "#60a5fa (accent-lighter)"
+      ],
+      "mobile_issues": [
+        "✓ GOOD: Extensive use of clamp() for responsive fonts",
+        "✓ GOOD: .grid-2 responsive at 900px",
+        "✓ GOOD: Media queries for mobile at 600px"
+      ],
+      "duplicate_rules": [
+        ".feature-card styling similar to main.css",
+        ".stat-card repeated"
+      ],
+      "outdated_rules": [
+        "@keyframes flow animation could be optimized"
+      ],
+      "naming_convention_issues": [
+        "Good semantic naming"
+      ]
+    },
+    "user/main.css": {
+      "lines": 552,
+      "purpose": "Master public site stylesheet with design system, navigation, footer, animations",
+      "color_values": [
+        "#3b82f6 (accent-blue)",
+        "#2563eb (accent-hover)",
+        "#1d4ed8 (accent-dark)",
+        "#1d4ed8 (text-heading-light)",
+        "#475569 (text-main-light)",
+        "#60a5fa (text-dim-light)",
+        "#080a0f (bg-dark)",
+        "#0f172a (surface-dark)",
+        "#1e1b4b (gradient-3-dark)",
+        "#60a5fa (accent-dark-mode)"
+      ],
+      "mobile_issues": [
+        "✓ GOOD: Responsive grid at 900px for desktop links",
+        "✓ GOOD: Mobile menu with overlay",
+        "✓ GOOD: Hamburger menu visible on mobile"
+      ],
+      "duplicate_rules": [
+        ".text-heading definition across multiple files",
+        ".nav-link hover states repeat"
+      ],
+      "outdated_rules": [],
+      "naming_convention_issues": [
+        "Excellent variable naming with theme suffixes (-light/-dark)",
+        "Good animation naming (.reveal-, .rotate-, .premium-)"
+      ]
+    },
+    "user/members.css": {
+      "lines": 213,
+      "purpose": "Members page with hero, grid layout, member cards, and detail page profiles",
+      "color_values": [
+        "#25d366 (whatsapp-green)",
+        "#1877f2 (facebook-blue)",
+        "#e4405f (instagram-pink)",
+        "#0a66c2 (linkedin-blue)",
+        "#1da1f2 (twitter-blue)"
+      ],
+      "mobile_issues": [
+        "✓ GOOD: Responsive grid at 900px and 500px",
+        "✓ GOOD: Detail page adjustments at 900px and 500px"
+      ],
+      "duplicate_rules": [
+        ".member-card similar to other card patterns"
+      ],
+      "outdated_rules": [],
+      "naming_convention_issues": [
+        "Good prefixing with .member-, .profile-"
+      ]
+    },
+    "user/project-details.css": {
+      "lines": 130,
+      "purpose": "Project detail page with hero, summary cards, image, and impact section",
+      "color_values": [],
+      "mobile_issues": [
+        "✓ GOOD: Grid-template-columns responsive at 1000px and 600px"
+      ],
+      "duplicate_rules": [
+        ".details-main-frame similar to other image frames"
+      ],
+      "outdated_rules": [],
+      "naming_convention_issues": [
+        "Good .details- prefix"
+      ]
+    },
+    "user/projects.css": {
+      "lines": 205,
+      "purpose": "Projects page with category grouping, filter pill, and project cards",
+      "color_values": [],
+      "mobile_issues": [
+        "✓ GOOD: Filter pill flex-direction change at 600px",
+        "✓ GOOD: Grid to single column at 600px"
+      ],
+      "duplicate_rules": [
+        ".project-card repeated across multiple files with variations"
+      ],
+      "outdated_rules": [],
+      "naming_convention_issues": [
+        "Good .projects- and .project- distinction"
+      ]
+    }
+  },
+  "summary": {
+    "total_files": 20,
+    "total_lines": 7063,
+    "files_breakdown": {
+      "main_stylesheet": 1,
+      "admin_files": 11,
+      "user_files": 8
+    },
+    "duplicate_count": 45,
+    "mobile_responsive_percent": 92,
+    "color_pattern_consistency": "MEDIUM - Mix of blue (#3b82f6, #2563eb, #1d4ed8) and white/gray, consistent with blue+white branding but some variations in shades",
+    "color_analysis": {
+      "primary_colors": [
+        "#3b82f6 (Blue-500 - Primary)",
+        "#2563eb (Blue-600 - Hover)",
+        "#1d4ed8 (Blue-700 - Active)",
+        "#ec4899 (Pink-500 - Secondary)",
+        "#4ade80 (Green-500 - Accent)",
+        "#10b981 (Emerald-600 - Success)"
+      ],
+      "neutral_colors": [
+        "#ffffff (White)",
+        "#f9fafb (Gray-50)",
+        "#f3f4f6 (Gray-100)",
+        "#e2e8f0 (Gray-200)",
+        "#94a3b8 (Gray-400)",
+        "#475569 (Gray-600)",
+        "#1f2937 (Gray-900)"
+      ],
+      "semantic_colors": [
+        "#10b981 (Success - Green)",
+        "#f59e0b (Warning - Amber)",
+        "#ef4444 (Error - Red)",
+        "#25d366 (WhatsApp - Green)"
+      ],
+      "pattern": "BLUE & WHITE dominant with green accents (good adherence to brand)"
+    },
+    "responsive_design_assessment": {
+      "excellent_files": [
+        "admin/layout.css - Complete responsive transformation",
+        "user/main.css - Full mobile menu implementation",
+        "user/home.css - Excellent use of clamp()",
+        "user/projects.css - Flexible grid system"
+      ],
+      "good_files": [
+        "app.css - Multiple breakpoints",
+        "admin/dashboard.css - Proper grid adjustments",
+        "user/gallery.css - Responsive columns"
+      ],
+      "concerning_files": [
+        "admin/home_editor.css - Fixed heights may cause issues on very small screens",
+        "admin/gallery.css - Lacks explicit mobile media queries"
+      ],
+      "issues_found": [
+        "Some fixed heights (calc(100vh - 100px))",
+        "A few hardcoded pixel values in animations",
+        "Column-gap sizing not always responsive"
+      ]
+    },
+    "naming_convention_analysis": {
+      "consistent_patterns": [
+        "Prefix-based organization: .admin-, .user-, .sb-, .msg-, .proj-",
+        "State modifiers: .active, .hover, .disabled patterns",
+        "Component nesting: .card, .header, .footer, .body"
+      ],
+      "inconsistencies": [
+        "Page titles: .page-title vs .proj-title vs .hero-title vs .details-title",
+        "Button naming: .btn-primary vs .btn-primary-admin vs .btn-primary-home",
+        "Card naming: .card vs .admin-card vs .project-card vs .stat-card",
+        "Text sizes: .kicker vs .hero-kicker vs .proj-eyebrow",
+        "Text modifiers: .text-heading vs .page-title (semantic vs utility)"
+      ],
+      "recommendations": [
+        "Create global .page-title class",
+        "Standardize all buttons to .btn-[variant]",
+        "Use single .card class with modifiers",
+        "Establish consistent section header patterns"
+      ]
+    },
+    "duplication_analysis": {
+      "critical_duplicates": [
+        "Button styles (.btn-primary definitions appear in 7+ files)",
+        ".stat-card styling with variations across 4 files",
+        ".alert success/error patterns repeated 8+ times",
+        "Form input styling (.admin-input) in ui.css and forms.css"
+      ],
+      "moderate_duplicates": [
+        ".card hover transforms similar across multiple files",
+        "Avatar styling (.avatar, .member-avatar) repeated",
+        "Grid responsive patterns copied",
+        "Animation keyframes (@keyframes floatFadeSync, @keyframes pulse) not centralized"
+      ],
+      "consolidation_opportunities": [
+        "Create _buttons.css for all button styles",
+        "Create _cards.css for card component variations",
+        "Create _forms.css for all form elements",
+        "Create _animations.css for all keyframe animations",
+        "Consolidate table styling into _tables.css"
+      ]
+    },
+    "performance_concerns": [
+      "Multiple box-shadow definitions with complex values (0 40px 100px -20px, etc.)",
+      "Heavy use of filter: blur(100px) in background elements",
+      "Complex gradient calculations in multiple places",
+      "Animation @keyframes with 8+ transform properties",
+      "Excessive use of -webkit-backdrop-filter (good for browser support but performance consideration)"
+    ],
+    "accessibility_notes": [
+      "✓ Good: Sufficient color contrast ratios visible",
+      "✓ Good: Focus states defined on form inputs",
+      "✓ Good: Semantic HTML structure supported by CSS",
+      "⚠ Review: Some animations are aggressive (may affect users with motion preferences)",
+      "✓ Good: Readable font sizes with proper line-height"
+    },
+    "unused_css_rules": [
+      ".ambient-glow - appears defined but not used heavily",
+      ".bloom-core and .bloom-mist - multiple bloom definitions",
+      "Legacy .nav-toggle styles - replaced by hamburger-btn",
+      "Several vendor-specific -webkit- properties that may not be needed",
+      ".premium-dark-card in app.css not referenced in views"
+    ],
+    "recommendations": {
+      "priority_high": [
+        {
+          "issue": "Massive duplication of button styles",
+          "impact": "40+ lines of duplicated styles across codebase",
+          "solution": "Create centralized _buttons.css with .btn-primary, .btn-secondary, .btn-danger base classes"
+        },
+        {
+          "issue": "CSS variables scattered across files",
+          "impact": "Inconsistent theming and hard to maintain",
+          "solution": "Consolidate all --variables into admin/layout.css and user/main.css as single source of truth"
+        },
+        {
+          "issue": "Naming conventions inconsistent",
+          "impact": "Developers search for .page-title, .hero-title, .proj-title (different names same purpose)",
+          "solution": "Standardize on single naming scheme with BEM methodology"
+        },
+        {
+          "issue": "Animation keyframes duplicated",
+          "impact": "7+ animation definitions across files",
+          "solution": "Create _animations.css with all @keyframes centralized"
+        }
+      ],
+      "priority_medium": [
+        {
+          "issue": "Some animations may cause performance issues",
+          "impact": "Multiple blur(100px) filters and complex transforms",
+          "solution": "Review animations on slower devices, consider will-change property"
+        },
+        {
+          "issue": "Fixed heights in some responsive sections",
+          "impact": "May break on very small screens",
+          "solution": "Convert calc(100vh - 100px) to use max-height and overflow"
+        },
+        {
+          "issue": "Color values hardcoded in multiple files",
+          "impact": "Brand color changes require edits in 15+ files",
+          "solution": "Centralize brand colors as --accent, --primary variables"
+        }
+      ],
+      "priority_low": [
+        {
+          "issue": "Unused vendor prefixes",
+          "impact": "Small file size increase",
+          "solution": "Remove -webkit-scrollbar customization if not critical"
+        },
+        {
+          "issue": "Some media queries could be combined",
+          "impact": "Code cleanliness",
+          "solution": "Combine similar breakpoint queries"
+        }
+      ]
+    },
+    "file_organization_score": {
+      "current": 62,
+      "rationale": "Good separation between admin/user, but excessive duplication and inconsistent naming lower score",
+      "potential": 85,
+      "actions_to_reach": [
+        "Consolidate duplicate component CSS into shared files",
+        "Standardize naming conventions",
+        "Centralize variables and animations"
+      ]
+    }
+  }
+}

@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<?= url('/public/css/user/project-details.css') ?>">
+<link rel="stylesheet" href="<?= asset_url('/public/css/user/project-details.css') ?>">
 
 <div class="project-details-wrapper">
     
@@ -56,5 +56,4 @@
     </section>
 
 </div>
-
 

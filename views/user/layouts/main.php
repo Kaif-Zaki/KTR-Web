@@ -9,17 +9,83 @@
     <title><?= e($webSettings['website_title'] ?? 'KUWS | Kottramulla United Welfare Society'); ?></title>
     <meta name="description" content="<?= e($webSettings['website_description'] ?? 'Kottramulla United Welfare Society (KUWS) - A dedicated volunteer team committed to serving our community since 2016.'); ?>">
     
-    <!-- Fonts: Inter & Outfit for a premium feel -->
+    <!-- Fonts with preload and font-display for optimal loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=block" rel="stylesheet">
     
-    <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="<?= url('/public/css/user/main.css') ?>">
+    <!-- Modern Design System Stylesheets -->
+    <link rel="stylesheet" href="<?= asset_url('/public/css/user/base.css') ?>">
+    <link rel="stylesheet" href="<?= asset_url('/public/css/user/components.css') ?>">
+    <link rel="stylesheet" href="<?= asset_url('/public/css/user/main.css') ?>">
+    <link rel="stylesheet" href="<?= asset_url('/public/css/user/home-modern.css') ?>">
+    <link rel="stylesheet" href="<?= asset_url('/public/css/user/pages-modern.css') ?>">
+    
+    <!-- Critical CSS Inline - Prevent deprecated text flash -->
+    <style>
+        /* Ensure system fonts display with correct metrics before web fonts load */
+        body { 
+            font-family: 'Inter', system-ui, -apple-system, sans-serif; 
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        h1, h2, h3, h4, h5, h6 { 
+            font-family: 'Outfit', -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, sans-serif;
+            font-weight: 700;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        strong, b { font-weight: 700; }
+        .font-light { font-weight: 300; }
+        .font-medium { font-weight: 500; }
+        .font-semibold { font-weight: 600; }
+        .font-bold { font-weight: 700; }
+        .font-extrabold { font-weight: 800; }
+        
+        .hero-title { 
+            font-size: clamp(2.8rem, 8vw, 6rem); 
+            font-weight: 800;
+            letter-spacing: -0.04em;
+        }
+        
+        .cta-banner h2 { 
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 800;
+        }
+        
+        /* Prevent layout shift while fonts load */
+        .fonts-loaded body { font-feature-settings: "kern" 1; }
+    </style>
+    
+    <script>
+        // Monitor font loading and add class when complete
+        if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(function() {
+                document.documentElement.classList.add('fonts-loaded');
+            });
+        } else {
+            // Fallback for browsers without Font Loading API
+            document.documentElement.classList.add('fonts-loaded');
+        }
+    </script>
     
     <!-- Favicon -->
     <?php if (!empty($webSettings['favicon_path'])): ?>
-        <link rel="icon" href="<?= url('/public/' . $webSettings['favicon_path']); ?>" type="image/png">
+        <?php
+            $faviconPath = (string) $webSettings['favicon_path'];
+            $faviconExt = strtolower(pathinfo($faviconPath, PATHINFO_EXTENSION));
+            $faviconType = match ($faviconExt) {
+                'ico' => 'image/x-icon',
+                'svg' => 'image/svg+xml',
+                default => 'image/png',
+            };
+        ?>
+        <link rel="icon" href="<?= url('/public/' . $faviconPath); ?>" type="<?= $faviconType; ?>">
+        <link rel="shortcut icon" href="<?= url('/public/' . $faviconPath); ?>" type="<?= $faviconType; ?>">
+        <link rel="apple-touch-icon" href="<?= url('/public/' . $faviconPath); ?>">
     <?php endif; ?>
     
     <!-- Theme Colors -->
@@ -28,6 +94,19 @@
             --primary-color: <?= htmlspecialchars($webSettings['primary_color'] ?? '#1e40af'); ?>;
             --secondary-color: <?= htmlspecialchars($webSettings['secondary_color'] ?? '#7c3aed'); ?>;
             --accent-color: <?= htmlspecialchars($webSettings['accent_color'] ?? '#f59e0b'); ?>;
+        }
+        
+        [data-theme="light"],
+        [data-theme="dark"] {
+            --text-heading: var(--primary-color) !important;
+            --accent: var(--primary-color) !important;
+            --accent-hover: var(--secondary-color) !important;
+        }
+
+        /* Final guard: keep home CTA banner in light brand blue */
+        .cta-section .cta-banner {
+            background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%) !important;
+            box-shadow: 0 16px 34px -12px rgba(37, 99, 235, 0.3) !important;
         }
     </style>
     
@@ -56,13 +135,13 @@
                 <!-- Logo Zone -->
                 <a href="<?= url('/home') ?>" class="nav-logo">
                     <?php if (!empty($webSettings['logo_path'])): ?>
-                        <div class="logo-image">
-                            <img src="<?= url('/public/' . htmlspecialchars($webSettings['logo_path'])); ?>" alt="<?= htmlspecialchars($webSettings['logo_alt_text'] ?? 'Logo'); ?>" style="height: 100%; max-width: 100%; object-fit: contain;">
+                        <div class="logo-image logo-image--nav" style="width:44px;height:44px;overflow:hidden;">
+                            <img src="<?= url('/public/' . htmlspecialchars($webSettings['logo_path'])); ?>" alt="<?= htmlspecialchars($webSettings['logo_alt_text'] ?? 'Logo'); ?>" class="logo-image-file" style="display:block;width:100%;height:100%;object-fit:contain;max-width:44px;max-height:44px;">
                         </div>
                     <?php else: ?>
                         <div class="logo-icon">K</div>
+                        <span class="logo-text"><?= htmlspecialchars(substr($webSettings['website_title'] ?? 'KUWS', 0, 4)); ?></span>
                     <?php endif; ?>
-                    <span class="logo-text"><?= htmlspecialchars(substr($webSettings['website_title'] ?? 'KUWS', 0, 4)); ?></span>
                 </a>
 
                 <!-- Desktop Navigation Links -->
@@ -122,7 +201,7 @@
                 <div class="footer-info">
                     <a href="<?= url('/home') ?>" class="footer-logo">
                         <?php if (!empty($webSettings['logo_path'])): ?>
-                            <img src="<?= url('/public/' . htmlspecialchars($webSettings['logo_path'])); ?>" alt="<?= htmlspecialchars($webSettings['logo_alt_text'] ?? 'Logo'); ?>" style="height: 40px; max-width: 100px; object-fit: contain;">
+                            <img src="<?= url('/public/' . htmlspecialchars($webSettings['logo_path'])); ?>" alt="<?= htmlspecialchars($webSettings['logo_alt_text'] ?? 'Logo'); ?>" class="footer-logo-image" style="display:block;width:56px;height:56px;object-fit:contain;max-width:56px;max-height:56px;">
                         <?php else: ?>
                             <?= htmlspecialchars(substr($webSettings['website_title'] ?? 'KUWS', 0, 4)); ?>
                         <?php endif; ?>

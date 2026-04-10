@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<?= url('/public/css/user/contact.css') ?>">
+<link rel="stylesheet" href="<?= asset_url('/public/css/user/contact.css') ?>">
 
 <div class="contact-page-wrapper">
     
@@ -108,4 +108,3 @@
 
     </div>
 </div>
-

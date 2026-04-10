@@ -123,5 +123,20 @@
 }
 
 @media (max-width: 500px) {
+    .about-page-wrapper {
+        padding: 0 14px;
+        margin: 24px auto 40px;
+    }
+
+    .about-card {
+        padding: 24px 16px;
+        border-radius: 22px;
+    }
+
+    .quote-box {
+        padding: 20px 14px;
+        border-radius: 18px;
+    }
+
     .about-stats { grid-template-columns: 1fr; }
 }

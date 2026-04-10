@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<?= url('/public/css/user/gallery.css') ?>">
+<link rel="stylesheet" href="<?= asset_url('/public/css/user/gallery.css') ?>">
 
 <section class="gallery-hero-section">
     <div class="page-shell">

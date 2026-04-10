@@ -52,6 +52,22 @@ function url(string $path = '/'): string
     return $baseUrl . $path;
 }
 
+function asset_url(string $path): string
+{
+    $assetPath = '/' . ltrim($path, '/');
+    $fullPath = __DIR__ . '/../../' . ltrim($path, '/');
+
+    $version = '';
+    if (is_file($fullPath)) {
+        $mtime = @filemtime($fullPath);
+        if ($mtime !== false) {
+            $version = '?v=' . $mtime;
+        }
+    }
+
+    return url($assetPath . $version);
+}
+
 function e(string $value): string
 {
     return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');

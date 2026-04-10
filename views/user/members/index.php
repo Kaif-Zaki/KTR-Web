@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<?= url('/public/css/user/members.css') ?>">
+<link rel="stylesheet" href="<?= asset_url('/public/css/user/members.css') ?>">
 
 <section class="members-hero-section">
     <div class="page-shell">
@@ -34,5 +34,4 @@
         <?php endif; ?>
     </div>
 </div>
-
 
