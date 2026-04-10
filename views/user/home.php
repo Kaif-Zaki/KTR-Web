@@ -9,7 +9,7 @@
     <div class="hero-content">
         <span class="hero-kicker"><?= e($settings['hero_kicker']) ?></span>
         <h1 class="hero-title">
-            <?= nl2br(e($settings['hero_title'])) ?> 
+            <?= nl2br(e($settings['hero_title'])) ?>
             <?php if (!empty($settings['hero_subtitle'])): ?>
                 <br><span class="dim"><?= e($settings['hero_subtitle']) ?></span>
             <?php endif; ?>
@@ -73,10 +73,27 @@
         </p>
     </div>
 
-    <div class="feature-grid">
+    <div class="feature-grid reveal reveal-stagger">
         <?php foreach ($features as $feature): ?>
             <div class="feature-card">
-                <div class="feature-icon"><?= e($feature['icon']) ?></div>
+                <div class="feature-icon">
+                    <?php
+                        $iconName = strtolower($feature['icon'] ?? '');
+                        switch ($iconName) {
+                            case 'heart':
+                                echo '<svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>';
+                                break;
+                            case 'book':
+                                echo '<svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>';
+                                break;
+                            case 'shield':
+                                echo '<svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>';
+                                break;
+                            default:
+                                echo '<svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>';
+                        }
+                    ?>
+                </div>
                 <h3 class="feature-title"><?= e($feature['title']) ?></h3>
                 <p class="feature-desc"><?= e($feature['description']) ?></p>
             </div>
@@ -96,16 +113,7 @@
         
         <div style="display: flex; gap: 16px; justify-content: center; position: relative; z-index: 5;">
             <a href="<?= url('/projects') ?>" class="btn-primary-home">Browse Projects</a>
-            <a href="<?= url('/contact') ?>" class="btn-ghost" style="color: #ffffff; border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.05);">Contact Us</a>
+            <!-- <a href="<?= url('/contact') ?>" class="btn-ghost" style="color: #ffffff; border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.05);">Contact Us</a> -->
         </div>
     </div>
 </section>
-
-<script>
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => { 
-            if (entry.isIntersecting) entry.target.classList.add('active'); 
-        });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>

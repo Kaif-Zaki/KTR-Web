@@ -27,6 +27,7 @@ function isActive($path, $currentUri) {
         '/admin/members'   => 'members',
         '/admin/projects'  => 'projects',
         '/admin/gallery'   => 'gallery',
+        '/admin/settings'  => 'forms',
         '/admin/home'      => 'home_editor',
         '/admin/about'     => 'home_editor',
         '/admin/dashboard' => 'dashboard',
@@ -141,6 +142,12 @@ function isActive($path, $currentUri) {
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                         </span>
                         <span class="sb-label">Profile</span>
+                    </a>
+                    <a href="<?= url('/admin/settings') ?>" class="sb-item <?= isActive('/admin/settings', $currentUri) ?>" data-tooltip="Website Settings">
+                        <span class="sb-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 6v6M4.22 4.22l4.24 4.24m3.08 3.08l4.24 4.24M1 12h6m6 0h6M4.22 19.78l4.24-4.24m3.08-3.08l4.24-4.24"/></svg>
+                        </span>
+                        <span class="sb-label">Website Settings</span>
                     </a>
                     <?php $unreadCount = (new \App\Models\ContactMessageModel())->unreadCount(); ?>
                     <a href="<?= url('/admin/messages') ?>" class="sb-item <?= isActive('/admin/messages', $currentUri) ?>" data-tooltip="Messages">

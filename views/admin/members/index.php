@@ -20,7 +20,6 @@
                 <th width="80">Avatar</th>
                 <th>Name</th>
                 <th>Occupation</th>
-                <th>Socials</th>
                 <th width="200">Actions</th>
             </tr>
         </thead>
@@ -36,20 +35,6 @@
                     </td>
                     <td style="font-weight: 700; color: var(--navy-900);"><?= e($member['name']) ?></td>
                     <td><span style="color: var(--text-light);"><?= e($member['occupation']) ?></span></td>
-                    <td>
-                        <div style="display: flex; gap: 4px; flex-wrap: wrap;">
-                            <?php 
-                                $links = json_decode($member['social_links'], true);
-                                if (is_array($links)):
-                                    foreach ($links as $link):
-                            ?>
-                                <span class="member-platform-tag"><?= ucfirst($link['platform'] ?? 'Link') ?></span>
-                            <?php 
-                                    endforeach;
-                                endif;
-                            ?>
-                        </div>
-                    </td>
                     <td>
                         <div style="display: flex; gap: 8px;">
                             <a href="<?= url('/admin/members/edit?id=' . (int) $member['id']) ?>" class="btn-secondary-admin btn-icon-only" title="Edit">

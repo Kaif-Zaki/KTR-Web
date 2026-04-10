@@ -3,8 +3,8 @@
 <div class="about-page-wrapper">
     
     <header class="about-hero reveal">
-        <span class="hero-kicker">Our Story</span>
-        <h1 class="page-title">Driven by <span class="accent-text">Compassion.</span></h1>
+        <span class="hero-kicker reveal-text">Our Story</span>
+        <h1 class="page-title reveal-text">Driven by <span class="accent-text">Compassion.</span></h1>
     </header>
 
     <main class="about-card reveal">
@@ -22,12 +22,12 @@
                 </div>
             </div>
 
-            <div class="about-stats">
-                <div class="stat-item reveal">
+            <div class="about-stats reveal reveal-stagger">
+                <div class="stat-item">
                     <label>Established</label>
                     <span class="stat-value"><?= e((string) $about['established_year']) ?></span>
                 </div>
-                <div class="stat-item reveal">
+                <div class="stat-item">
                     <label>Active Volunteers</label>
                     <span class="stat-value"><?= e((string) $about['volunteer_count']) ?>+</span>
                 </div>
@@ -47,12 +47,12 @@
                 </div>
             </div>
 
-            <div class="about-stats">
-                <div class="stat-item reveal">
+            <div class="about-stats reveal reveal-stagger">
+                <div class="stat-item">
                     <label>Established</label>
                     <span class="stat-value">2016</span>
                 </div>
-                <div class="stat-item reveal">
+                <div class="stat-item">
                     <label>Active Volunteers</label>
                     <span class="stat-value">50+</span>
                 </div>
@@ -67,18 +67,3 @@
     </section>
 
 </div>
-
-<script>
-    (function() {
-        const rev = document.querySelectorAll('.reveal');
-        const options = { threshold: 0.1 };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, options);
-        rev.forEach(r => observer.observe(r));
-    })();
-</script>

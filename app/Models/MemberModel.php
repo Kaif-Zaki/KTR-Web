@@ -28,8 +28,8 @@ class MemberModel
     {
         $pdo = Database::connection();
         $stmt = $pdo->prepare('
-            INSERT INTO members (name, dob, occupation, social_links, email, whatsapp, image_path) 
-            VALUES (:name, :dob, :occupation, :social_links, :email, :whatsapp, :image_path)
+            INSERT INTO members (name, occupation, image_path) 
+            VALUES (:name, :occupation, :image_path)
         ');
         $stmt->execute($data);
     }
@@ -40,9 +40,7 @@ class MemberModel
         $data['id'] = $id;
         $stmt = $pdo->prepare('
             UPDATE members 
-            SET name = :name, dob = :dob, occupation = :occupation, 
-                social_links = :social_links, email = :email, whatsapp = :whatsapp,
-                image_path = :image_path
+            SET name = :name, occupation = :occupation, image_path = :image_path
             WHERE id = :id
         ');
         $stmt->execute($data);

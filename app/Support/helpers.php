@@ -66,3 +66,19 @@ function redirect(string $to): never
     header('Location: ' . $location);
     exit;
 }
+
+function website_settings(): ?array
+{
+    static $settings = null;
+    
+    if ($settings === null) {
+        try {
+            $model = new \App\Models\WebsiteSettingsModel();
+            $settings = $model->get() ?: [];
+        } catch (\Throwable) {
+            $settings = [];
+        }
+    }
+    
+    return $settings ?: null;
+}

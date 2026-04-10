@@ -3,7 +3,7 @@
    ══════════════════════════════════════════════════════════ */
 
 .gallery-hero-section {
-    padding: 100px 24px 60px;
+    padding: 80px 24px 40px;
     text-align: center;
     position: relative;
     z-index: 10;
@@ -30,7 +30,7 @@
 .gallery-shell {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 24px 100px;
+    padding: 0 24px 60px;
 }
 
 .gallery-masonry {

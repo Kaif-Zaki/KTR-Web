@@ -4,7 +4,7 @@
 
 /* ── Hero / Header ── */
 .members-hero-section {
-    padding: 100px 24px 60px;
+    padding: 80px 24px 40px;
     text-align: center;
     position: relative;
     z-index: 10;
@@ -31,15 +31,15 @@
 .members-shell {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 24px 100px;
+    padding: 0 24px 60px;
     position: relative;
     z-index: 20;
 }
 
 .members-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 32px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
 }
 
 /* ── Member Card (Index) ── */
@@ -47,7 +47,7 @@
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 32px;
-    padding: 32px;
+    padding: 24px;
     display: flex;
     flex-direction: column;
     align-items: center;

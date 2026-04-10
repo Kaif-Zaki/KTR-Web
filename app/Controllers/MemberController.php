@@ -26,21 +26,4 @@ class MemberController
         ]);
     }
 
-    public function show(int $id): void
-    {
-        if ($id <= 0) {
-            redirect('/members');
-        }
-
-        $member = $this->members->find($id);
-
-        if ($member === null) {
-            redirect('/members');
-        }
-
-        View::render('user/members/show', [
-            'member' => $member,
-            'activePage' => 'members',
-        ]);
-    }
 }

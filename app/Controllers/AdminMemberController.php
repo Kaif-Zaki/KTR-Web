@@ -50,13 +50,13 @@ class AdminMemberController
             redirect('/admin/members');
         }
 
-        $data = $this->validatedData();
+        $data = $this->validatedData(null);
         if ($data === null) {
             redirect('/admin/members/create');
         }
 
         // Handle File Upload
-        $file = $_FILES['avatar'] ?? null;
+        $file = $_FILES['image'] ?? null;
         $imagePath = null;
 
         if ($file && $file['error'] === UPLOAD_ERR_OK) {
@@ -113,13 +113,13 @@ class AdminMemberController
             redirect('/admin/members');
         }
 
-        $data = $this->validatedData();
+        $data = $this->validatedData($member);
         if ($data === null) {
             redirect('/admin/members/edit?id=' . $id);
         }
 
         // Handle File Upload
-        $file = $_FILES['avatar'] ?? null;
+        $file = $_FILES['image'] ?? null;
         $imagePath = $member['image_path'];
 
         if ($file && $file['error'] === UPLOAD_ERR_OK) {
@@ -208,32 +208,19 @@ class AdminMemberController
         }
     }
 
-    private function validatedData(): ?array
+    private function validatedData(array $member = null): ?array
     {
         $name = trim((string) ($_POST['name'] ?? ''));
-        $dob = trim((string) ($_POST['dob'] ?? ''));
         $occupation = trim((string) ($_POST['occupation'] ?? ''));
-        $socialLinks = trim((string) ($_POST['social_links'] ?? ''));
-        $email = trim((string) ($_POST['email'] ?? ''));
-        $whatsapp = trim((string) ($_POST['whatsapp'] ?? ''));
 
-        if ($name === '' || $dob === '' || $occupation === '' || $email === '') {
-            Session::flash('error', 'Please fill all required fields (Name, DOB, Occupation, Email).');
-            return null;
-        }
-
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            Session::flash('error', 'Please enter a valid email address.');
+        if ($name === '' || $occupation === '') {
+            Session::flash('error', 'Please fill all required fields (Name, Position).');
             return null;
         }
 
         return [
             'name'         => $name,
-            'dob'          => $dob,
             'occupation'   => $occupation,
-            'social_links' => $socialLinks,
-            'email'        => $email,
-            'whatsapp'     => $whatsapp === '' ? null : $whatsapp,
         ];
     }
 }

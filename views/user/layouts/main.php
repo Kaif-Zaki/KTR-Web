@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Dynamic Title & Meta Tags -->
-    <title><?= $pageTitle ?? 'KUWS | Kottramulla United Welfare Society' ?></title>
-    <meta name="description" content="Kottramulla United Welfare Society (KUWS) - A dedicated volunteer team committed to serving our community since 2016.">
+    <?php $webSettings = website_settings(); ?>
+    <title><?= e($webSettings['website_title'] ?? 'KUWS | Kottramulla United Welfare Society'); ?></title>
+    <meta name="description" content="<?= e($webSettings['website_description'] ?? 'Kottramulla United Welfare Society (KUWS) - A dedicated volunteer team committed to serving our community since 2016.'); ?>">
     
     <!-- Fonts: Inter & Outfit for a premium feel -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,6 +16,20 @@
     
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="<?= url('/public/css/user/main.css') ?>">
+    
+    <!-- Favicon -->
+    <?php if (!empty($webSettings['favicon_path'])): ?>
+        <link rel="icon" href="<?= url('/public/' . $webSettings['favicon_path']); ?>" type="image/png">
+    <?php endif; ?>
+    
+    <!-- Theme Colors -->
+    <style>
+        :root {
+            --primary-color: <?= htmlspecialchars($webSettings['primary_color'] ?? '#1e40af'); ?>;
+            --secondary-color: <?= htmlspecialchars($webSettings['secondary_color'] ?? '#7c3aed'); ?>;
+            --accent-color: <?= htmlspecialchars($webSettings['accent_color'] ?? '#f59e0b'); ?>;
+        }
+    </style>
     
     <script>
         // High-speed theme initialization to prevent flash
@@ -40,8 +55,14 @@
                 
                 <!-- Logo Zone -->
                 <a href="<?= url('/home') ?>" class="nav-logo">
-                    <div class="logo-icon">K</div>
-                    <span class="logo-text">KUWS</span>
+                    <?php if (!empty($webSettings['logo_path'])): ?>
+                        <div class="logo-image">
+                            <img src="<?= url('/public/' . htmlspecialchars($webSettings['logo_path'])); ?>" alt="<?= htmlspecialchars($webSettings['logo_alt_text'] ?? 'Logo'); ?>" style="height: 100%; max-width: 100%; object-fit: contain;">
+                        </div>
+                    <?php else: ?>
+                        <div class="logo-icon">K</div>
+                    <?php endif; ?>
+                    <span class="logo-text"><?= htmlspecialchars(substr($webSettings['website_title'] ?? 'KUWS', 0, 4)); ?></span>
                 </a>
 
                 <!-- Desktop Navigation Links -->
@@ -99,8 +120,14 @@
         <div class="footer-container">
             <div class="footer-top">
                 <div class="footer-info">
-                    <a href="<?= url('/home') ?>" class="footer-logo">KUWS</a>
-                    <p class="footer-tagline">Since 2016, we have been dedicated to uniting hearts and empowering the community through collective welfare and unwavering hope.</p>
+                    <a href="<?= url('/home') ?>" class="footer-logo">
+                        <?php if (!empty($webSettings['logo_path'])): ?>
+                            <img src="<?= url('/public/' . htmlspecialchars($webSettings['logo_path'])); ?>" alt="<?= htmlspecialchars($webSettings['logo_alt_text'] ?? 'Logo'); ?>" style="height: 40px; max-width: 100px; object-fit: contain;">
+                        <?php else: ?>
+                            <?= htmlspecialchars(substr($webSettings['website_title'] ?? 'KUWS', 0, 4)); ?>
+                        <?php endif; ?>
+                    </a>
+                    <p class="footer-tagline"><?= htmlspecialchars($webSettings['website_description'] ?? 'Since 2016, we have been dedicated to uniting hearts and empowering the community through collective welfare and unwavering hope.'); ?></p>
                 </div>
                 <div class="footer-nav">
                     <div class="footer-col">
@@ -118,12 +145,35 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; <?= date('Y') ?> Kottramulla United Welfare Society. All Rights Reserved.</p>
+                <div class="footer-left">
+                    <p><?= htmlspecialchars($webSettings['footer_copyright_text'] ?? '© ' . date('Y') . ' Kottramulla United Welfare Society. All Rights Reserved.'); ?></p>
+                    <?php if (!empty($webSettings['footer_email']) || !empty($webSettings['footer_phone'])): ?>
+                        <div class="footer-contact">
+                            <?php if (!empty($webSettings['footer_email'])): ?>
+                                <a href="mailto:<?= htmlspecialchars($webSettings['footer_email']); ?>"><?= htmlspecialchars($webSettings['footer_email']); ?></a>
+                            <?php endif; ?>
+                            <?php if (!empty($webSettings['footer_phone'])): ?>
+                                <a href="tel:<?= htmlspecialchars($webSettings['footer_phone']); ?>"><?= htmlspecialchars($webSettings['footer_phone']); ?></a>
+                            <?php endif; ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
                 <div class="footer-socials">
-                    <!-- Standard placeholder links -->
-                    <a href="#" aria-label="Facebook">FB</a>
-                    <a href="#" aria-label="Instagram">IG</a>
-                    <a href="#" aria-label="LinkedIn">LI</a>
+                    <?php if (!empty($webSettings['social_facebook'])): ?>
+                        <a href="<?= htmlspecialchars($webSettings['social_facebook']); ?>" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook">f</a>
+                    <?php endif; ?>
+                    <?php if (!empty($webSettings['social_twitter'])): ?>
+                        <a href="<?= htmlspecialchars($webSettings['social_twitter']); ?>" target="_blank" rel="noopener noreferrer" aria-label="Twitter" title="Twitter">𝕏</a>
+                    <?php endif; ?>
+                    <?php if (!empty($webSettings['social_instagram'])): ?>
+                        <a href="<?= htmlspecialchars($webSettings['social_instagram']); ?>" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">📷</a>
+                    <?php endif; ?>
+                    <?php if (!empty($webSettings['social_linkedin'])): ?>
+                        <a href="<?= htmlspecialchars($webSettings['social_linkedin']); ?>" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">in</a>
+                    <?php endif; ?>
+                    <?php if (!empty($webSettings['social_youtube'])): ?>
+                        <a href="<?= htmlspecialchars($webSettings['social_youtube']); ?>" target="_blank" rel="noopener noreferrer" aria-label="YouTube" title="YouTube">▶</a>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -187,7 +237,7 @@
                 });
             }, revealOptions);
 
-            document.querySelectorAll('.reveal-text, .reveal-container').forEach(el => {
+            document.querySelectorAll('.reveal-text, .reveal-container, .reveal-stagger, .reveal').forEach(el => {
                 revealObserver.observe(el);
             });
         })();

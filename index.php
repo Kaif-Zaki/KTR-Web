@@ -40,6 +40,7 @@ use App\Controllers\AdminMemberController;
 use App\Controllers\AdminGalleryController;
 use App\Controllers\AdminHomeController;
 use App\Controllers\AdminAboutController;
+use App\Controllers\AdminSettingsController;
 use App\Controllers\PublicContactController;
 use App\Controllers\PublicController;
 use App\Controllers\MemberController;
@@ -74,6 +75,7 @@ $adminMembers = new AdminMemberController();
 $adminGallery = new AdminGalleryController();
 $adminHome = new AdminHomeController();
 $adminAbout = new AdminAboutController();
+$adminSettings = new AdminSettingsController();
 $memberController = new MemberController();
 
 if (($uri === '/' || $uri === '/home') && $method === 'GET') {
@@ -110,12 +112,6 @@ if ($uri === '/members' && $method === 'GET') {
     $memberController->index();
     exit;
 }
-
-if ($uri === '/member-details' && $method === 'GET') {
-    $memberController->show((int) ($_GET['id'] ?? 0));
-    exit;
-}
-
 
 
 if ($uri === '/contact' && $method === 'GET') {
@@ -325,6 +321,17 @@ if ($uri === '/admin/about' && $method === 'GET') {
 
 if ($uri === '/admin/about/update' && $method === 'POST') {
     $adminAbout->update();
+    exit;
+}
+
+// Admin Website Settings
+if ($uri === '/admin/settings' && $method === 'GET') {
+    $adminSettings->index();
+    exit;
+}
+
+if ($uri === '/admin/settings/update' && $method === 'POST') {
+    $adminSettings->update();
     exit;
 }
 

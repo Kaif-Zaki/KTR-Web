@@ -52,9 +52,9 @@
                 <div class="category-line"></div>
             </div>
 
-            <div class="projects-flex-grid">
+            <div class="projects-flex-grid reveal reveal-stagger">
                 <?php foreach ($items as $item): ?>
-                    <article class="project-card reveal-container" onclick="window.location.href='<?= url('/project-details?id=' . (int) $item['id']) ?>'">
+                    <article class="project-card" onclick="window.location.href='<?= url('/project-details?id=' . (int) $item['id']) ?>'">
                         <div class="card-body">
                             <span class="proj-tag"><?= e((string) $categoryName) ?></span>
                             <h4><?= e($item['title']) ?></h4>

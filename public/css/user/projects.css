@@ -4,7 +4,7 @@
 
 /* ── Hero & Search ── */
 .projects-hero-section {
-    padding: 100px 24px 60px;
+    padding: 80px 24px 40px;
     text-align: center;
     position: relative;
     z-index: 10;
@@ -85,11 +85,11 @@
 .project-sections-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 24px 100px;
+    padding: 0 24px 60px;
 }
 
 .category-group {
-    margin-bottom: 80px;
+    margin-bottom: 40px;
 }
 
 .category-header {
@@ -116,7 +116,7 @@
 /* ── Project Cards ── */
 .projects-flex-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 24px;
 }
 
