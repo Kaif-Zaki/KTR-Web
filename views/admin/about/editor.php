@@ -52,6 +52,84 @@
                     </div>
                 </div>
             </div>
+
+            <div class="editor-card">
+                <div class="editor-card-title">🎯 Mission, Vision & Values</div>
+                <div class="form-group">
+                    <label class="form-label">Mission Title</label>
+                    <input type="text" name="mission_title" class="form-input" value="<?= e($about['mission_title'] ?? '') ?>">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Mission Description</label>
+                    <textarea name="mission_body" class="form-input" rows="3"><?= e($about['mission_body'] ?? '') ?></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Vision Title</label>
+                    <input type="text" name="vision_title" class="form-input" value="<?= e($about['vision_title'] ?? '') ?>">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Vision Description</label>
+                    <textarea name="vision_body" class="form-input" rows="3"><?= e($about['vision_body'] ?? '') ?></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Values Card Title</label>
+                    <input type="text" name="values_title" class="form-input" value="<?= e($about['values_title'] ?? '') ?>">
+                </div>
+                <div class="input-grid">
+                    <div class="form-group">
+                        <label class="form-label">Value 1</label>
+                        <input type="text" name="values_item1" class="form-input" value="<?= e($about['values_item1'] ?? '') ?>">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Value 2</label>
+                        <input type="text" name="values_item2" class="form-input" value="<?= e($about['values_item2'] ?? '') ?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Value 3</label>
+                    <input type="text" name="values_item3" class="form-input" value="<?= e($about['values_item3'] ?? '') ?>">
+                </div>
+            </div>
+
+            <div class="editor-card">
+                <div class="editor-card-title">🗂️ Timeline Block</div>
+                <div class="form-group">
+                    <label class="form-label">Timeline Kicker</label>
+                    <input type="text" name="timeline_kicker" class="form-input" value="<?= e($about['timeline_kicker'] ?? '') ?>">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Timeline Title</label>
+                    <input type="text" name="timeline_title" class="form-input" value="<?= e($about['timeline_title'] ?? '') ?>">
+                </div>
+                <div class="input-grid">
+                    <div class="form-group">
+                        <label class="form-label">Milestone 1 Year</label>
+                        <input type="text" name="timeline_item1_year" class="form-input" value="<?= e($about['timeline_item1_year'] ?? '') ?>">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Milestone 2 Year</label>
+                        <input type="text" name="timeline_item2_year" class="form-input" value="<?= e($about['timeline_item2_year'] ?? '') ?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Milestone 1 Description</label>
+                    <textarea name="timeline_item1_body" class="form-input" rows="2"><?= e($about['timeline_item1_body'] ?? '') ?></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Milestone 2 Description</label>
+                    <textarea name="timeline_item2_body" class="form-input" rows="2"><?= e($about['timeline_item2_body'] ?? '') ?></textarea>
+                </div>
+                <div class="input-grid">
+                    <div class="form-group">
+                        <label class="form-label">Milestone 3 Year</label>
+                        <input type="text" name="timeline_item3_year" class="form-input" value="<?= e($about['timeline_item3_year'] ?? '') ?>">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Milestone 3 Description</label>
+                        <textarea name="timeline_item3_body" class="form-input" rows="2"><?= e($about['timeline_item3_body'] ?? '') ?></textarea>
+                    </div>
+                </div>
+            </div>
         </form>
     </div>
 

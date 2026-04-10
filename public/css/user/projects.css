@@ -81,6 +81,48 @@
 }
 .btn-search-trigger:hover { transform: scale(1.05); background: var(--accent-hover); }
 
+[data-theme="dark"] .filter-category-select {
+    color: var(--text-heading);
+}
+
+[data-theme="dark"] .filter-category-select option {
+    background: #0f172a;
+    color: #e2e8f0;
+}
+
+[data-theme="dark"] .search-input-field::placeholder {
+    color: var(--text-dim);
+}
+
+.projects-insights {
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.insight-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.insight-card h3 {
+    font-family: var(--font-heading);
+    color: var(--accent);
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+}
+
+.insight-card p {
+    margin: 0;
+    color: var(--text-main);
+    font-size: 0.92rem;
+}
+
 /* ── Project Grouping ── */
 .project-sections-container {
     max-width: 1200px;
@@ -202,6 +244,11 @@
 
     .project-sections-container {
         padding: 0 14px 44px;
+    }
+
+    .projects-insights {
+        padding: 0 14px;
+        grid-template-columns: 1fr;
     }
 
     .filter-glass-pill { flex-direction: column; border-radius: 24px; padding: 16px; gap: 12px; }

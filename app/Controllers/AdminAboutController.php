@@ -45,6 +45,22 @@ class AdminAboutController
             'quote'            => trim((string) ($_POST['quote'] ?? '')),
             'volunteer_count'  => (int) ($_POST['volunteer_count'] ?? 0),
             'established_year' => (int) ($_POST['established_year'] ?? 0),
+            'mission_title'    => trim((string) ($_POST['mission_title'] ?? '')),
+            'mission_body'     => trim((string) ($_POST['mission_body'] ?? '')),
+            'vision_title'     => trim((string) ($_POST['vision_title'] ?? '')),
+            'vision_body'      => trim((string) ($_POST['vision_body'] ?? '')),
+            'values_title'     => trim((string) ($_POST['values_title'] ?? '')),
+            'values_item1'     => trim((string) ($_POST['values_item1'] ?? '')),
+            'values_item2'     => trim((string) ($_POST['values_item2'] ?? '')),
+            'values_item3'     => trim((string) ($_POST['values_item3'] ?? '')),
+            'timeline_kicker'  => trim((string) ($_POST['timeline_kicker'] ?? '')),
+            'timeline_title'   => trim((string) ($_POST['timeline_title'] ?? '')),
+            'timeline_item1_year' => trim((string) ($_POST['timeline_item1_year'] ?? '')),
+            'timeline_item1_body' => trim((string) ($_POST['timeline_item1_body'] ?? '')),
+            'timeline_item2_year' => trim((string) ($_POST['timeline_item2_year'] ?? '')),
+            'timeline_item2_body' => trim((string) ($_POST['timeline_item2_body'] ?? '')),
+            'timeline_item3_year' => trim((string) ($_POST['timeline_item3_year'] ?? '')),
+            'timeline_item3_body' => trim((string) ($_POST['timeline_item3_body'] ?? '')),
         ];
 
         try {

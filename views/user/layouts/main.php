@@ -91,22 +91,39 @@
     <!-- Theme Colors -->
     <style>
         :root {
-            --primary-color: <?= htmlspecialchars($webSettings['primary_color'] ?? '#1e40af'); ?>;
-            --secondary-color: <?= htmlspecialchars($webSettings['secondary_color'] ?? '#7c3aed'); ?>;
+            --brand-primary: <?= htmlspecialchars($webSettings['primary_color'] ?? '#1e40af'); ?>;
+            --brand-secondary: <?= htmlspecialchars($webSettings['secondary_color'] ?? '#7c3aed'); ?>;
             --accent-color: <?= htmlspecialchars($webSettings['accent_color'] ?? '#f59e0b'); ?>;
         }
         
-        [data-theme="light"],
-        [data-theme="dark"] {
-            --text-heading: var(--primary-color) !important;
-            --accent: var(--primary-color) !important;
-            --accent-hover: var(--secondary-color) !important;
+        [data-theme="light"] {
+            --text-heading: var(--brand-primary) !important;
+            --accent: var(--brand-primary) !important;
+            --accent-hover: var(--brand-secondary) !important;
         }
 
-        /* Final guard: keep home CTA banner in light brand blue */
-        .cta-section .cta-banner {
-            background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%) !important;
-            box-shadow: 0 16px 34px -12px rgba(37, 99, 235, 0.3) !important;
+        [data-theme="dark"] {
+            --accent: var(--brand-primary) !important;
+            --accent-hover: var(--brand-secondary) !important;
+            --text-heading: #f8fafc !important;
+            --text-main: #cbd5e1 !important;
+            --text-dim: #94a3b8 !important;
+            --surface: #121826 !important;
+            --surface-glass: rgba(18, 24, 38, 0.78) !important;
+            --border: rgba(148, 163, 184, 0.22) !important;
+            --border-glass: rgba(148, 163, 184, 0.3) !important;
+            --accent-soft: rgba(59, 130, 246, 0.2) !important;
+        }
+
+        /* CTA banner theme guard */
+        [data-theme="light"] .cta-section .cta-banner {
+            background: rgb(30, 64, 175) !important;
+            box-shadow: 0 16px 34px -12px rgba(30, 64, 175, 0.45) !important;
+        }
+
+        [data-theme="dark"] .cta-section .cta-banner {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%) !important;
+            box-shadow: 0 16px 34px -12px rgba(15, 23, 42, 0.7) !important;
         }
     </style>
     

@@ -28,6 +28,22 @@ CREATE TABLE IF NOT EXISTS about_sections (
     quote TEXT NULL,
     volunteer_count INT UNSIGNED DEFAULT 0,
     established_year SMALLINT UNSIGNED DEFAULT NULL,
+    mission_title VARCHAR(255) DEFAULT 'Our Mission',
+    mission_body TEXT NULL,
+    vision_title VARCHAR(255) DEFAULT 'Our Vision',
+    vision_body TEXT NULL,
+    values_title VARCHAR(255) DEFAULT 'Our Core Values',
+    values_item1 VARCHAR(255) DEFAULT 'Compassion in action',
+    values_item2 VARCHAR(255) DEFAULT 'Transparency in every initiative',
+    values_item3 VARCHAR(255) DEFAULT 'Unity through volunteerism',
+    timeline_kicker VARCHAR(255) DEFAULT 'Progress Timeline',
+    timeline_title VARCHAR(255) DEFAULT 'Important milestones in our journey',
+    timeline_item1_year VARCHAR(60) DEFAULT '2016',
+    timeline_item1_body TEXT NULL,
+    timeline_item2_year VARCHAR(60) DEFAULT '2020',
+    timeline_item2_body TEXT NULL,
+    timeline_item3_year VARCHAR(60) DEFAULT 'Today',
+    timeline_item3_body TEXT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -110,6 +126,7 @@ CREATE TABLE IF NOT EXISTS home_settings (
     hero_title TEXT,
     hero_subtitle TEXT,
     hero_lead TEXT,
+    hero_image VARCHAR(255) NULL,
     legacy_kicker VARCHAR(255) DEFAULT 'Our Legacy',
     legacy_title TEXT,
     legacy_body TEXT,
@@ -123,6 +140,28 @@ CREATE TABLE IF NOT EXISTS home_settings (
     initiatives_lead TEXT,
     cta_title VARCHAR(255) DEFAULT 'Ready to make a difference?',
     cta_body TEXT,
+    journey_kicker VARCHAR(255) DEFAULT 'Journey Highlights',
+    journey_title VARCHAR(255) DEFAULT 'How our community story keeps growing',
+    journey_lead TEXT NULL,
+    journey_item1_year VARCHAR(60) DEFAULT '2016',
+    journey_item1_title VARCHAR(255) DEFAULT 'Society Formation',
+    journey_item1_body TEXT NULL,
+    journey_item2_year VARCHAR(60) DEFAULT '2019',
+    journey_item2_title VARCHAR(255) DEFAULT 'Structured Programs',
+    journey_item2_body TEXT NULL,
+    journey_item3_year VARCHAR(60) DEFAULT 'Today',
+    journey_item3_title VARCHAR(255) DEFAULT 'Long-Term Impact',
+    journey_item3_body TEXT NULL,
+    approach_kicker VARCHAR(255) DEFAULT 'Our Approach',
+    approach_title VARCHAR(255) DEFAULT 'A transparent model for meaningful outcomes',
+    approach_item1_title VARCHAR(255) DEFAULT 'Listen First',
+    approach_item1_body TEXT NULL,
+    approach_item2_title VARCHAR(255) DEFAULT 'Mobilize Fast',
+    approach_item2_body TEXT NULL,
+    approach_item3_title VARCHAR(255) DEFAULT 'Measure & Improve',
+    approach_item3_body TEXT NULL,
+    approach_item4_title VARCHAR(255) DEFAULT 'Active Focus Areas',
+    approach_item4_body TEXT NULL,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
@@ -153,6 +192,22 @@ CREATE TABLE IF NOT EXISTS website_settings (
     primary_color VARCHAR(7) DEFAULT '#1e40af',
     secondary_color VARCHAR(7) DEFAULT '#7c3aed',
     accent_color VARCHAR(7) DEFAULT '#f59e0b',
+    projects_insight3_title VARCHAR(255) DEFAULT 'Transparent',
+    projects_insight3_body TEXT NULL,
+    gallery_overview1_title VARCHAR(255) DEFAULT 'Living archive of service',
+    gallery_overview1_body TEXT NULL,
+    gallery_overview3_title VARCHAR(255) DEFAULT 'People-centered stories',
+    gallery_overview3_body TEXT NULL,
+    members_overview2_title VARCHAR(255) DEFAULT 'Volunteer-led',
+    members_overview2_body TEXT NULL,
+    members_overview3_title VARCHAR(255) DEFAULT 'Open to all',
+    members_overview3_body TEXT NULL,
+    contact_assurance1_title VARCHAR(255) DEFAULT 'Quick Response',
+    contact_assurance1_body TEXT NULL,
+    contact_assurance2_title VARCHAR(255) DEFAULT 'Meaningful Guidance',
+    contact_assurance2_body TEXT NULL,
+    contact_assurance3_title VARCHAR(255) DEFAULT 'Community First',
+    contact_assurance3_body TEXT NULL,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
@@ -268,3 +323,37 @@ SELECT * FROM (
 WHERE NOT EXISTS (
     SELECT 1 FROM website_settings WHERE id = 1
 ) LIMIT 1;
+
+-- Seed fallback text for page-detail text fields
+UPDATE home_settings
+SET
+    journey_lead = COALESCE(NULLIF(journey_lead, ''), 'From the first volunteer circle to today, every milestone reflects consistent grassroots action and trusted partnerships.'),
+    journey_item1_body = COALESCE(NULLIF(journey_item1_body, ''), 'KUWS started with local volunteers focused on urgent household support and shared welfare activities.'),
+    journey_item2_body = COALESCE(NULLIF(journey_item2_body, ''), 'We expanded into recurring education, relief, and family assistance programs with clearer planning cycles.'),
+    journey_item3_body = COALESCE(NULLIF(journey_item3_body, ''), 'Our team now balances immediate aid and sustainable initiatives to build resilience across the community.'),
+    approach_item1_body = COALESCE(NULLIF(approach_item1_body, ''), 'We assess needs directly with families and neighbors before planning any intervention.'),
+    approach_item2_body = COALESCE(NULLIF(approach_item2_body, ''), 'Volunteers, donors, and partners coordinate quickly to ensure support reaches people on time.'),
+    approach_item3_body = COALESCE(NULLIF(approach_item3_body, ''), 'Each cycle is reviewed so future programs deliver stronger and more sustainable community results.'),
+    approach_item4_body = COALESCE(NULLIF(approach_item4_body, ''), 'Key initiative areas are currently active with recurring community engagement.')
+WHERE id = 1;
+
+UPDATE about_sections
+SET
+    mission_body = COALESCE(NULLIF(mission_body, ''), 'To uplift vulnerable families through consistent welfare support, dignity-focused outreach, and long-term community empowerment.'),
+    vision_body = COALESCE(NULLIF(vision_body, ''), 'To build a compassionate, resilient society where every household has access to care, opportunity, and collective strength.'),
+    timeline_item1_body = COALESCE(NULLIF(timeline_item1_body, ''), 'KUWS established in Kottramulla with an initial volunteer-driven welfare network.'),
+    timeline_item2_body = COALESCE(NULLIF(timeline_item2_body, ''), 'Expanded recurring support programs for education, emergency relief, and family assistance.'),
+    timeline_item3_body = COALESCE(NULLIF(timeline_item3_body, ''), 'Growing partnerships and stronger community coordination to scale sustainable social impact.')
+WHERE id = (SELECT id FROM (SELECT id FROM about_sections ORDER BY id ASC LIMIT 1) AS t);
+
+UPDATE website_settings
+SET
+    projects_insight3_body = COALESCE(NULLIF(projects_insight3_body, ''), 'Each project card includes status context and quick access to full details.'),
+    gallery_overview1_body = COALESCE(NULLIF(gallery_overview1_body, ''), 'Every image captures volunteer effort, community participation, and progress across initiatives.'),
+    gallery_overview3_body = COALESCE(NULLIF(gallery_overview3_body, ''), 'Captions and tags help connect each photo to the welfare journey behind it.'),
+    members_overview2_body = COALESCE(NULLIF(members_overview2_body, ''), 'Our initiatives are organized and delivered through collaborative volunteer leadership.'),
+    members_overview3_body = COALESCE(NULLIF(members_overview3_body, ''), 'We welcome compassionate people who want to contribute skills, time, or guidance.'),
+    contact_assurance1_body = COALESCE(NULLIF(contact_assurance1_body, ''), 'We review incoming messages regularly and reply as fast as possible.'),
+    contact_assurance2_body = COALESCE(NULLIF(contact_assurance2_body, ''), 'Whether you want to donate, volunteer, or partner, we guide you to the right next step.'),
+    contact_assurance3_body = COALESCE(NULLIF(contact_assurance3_body, ''), 'Every conversation is handled with care, respect, and a practical action mindset.')
+WHERE id = 1;

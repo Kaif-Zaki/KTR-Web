@@ -33,6 +33,10 @@
     overflow: hidden;
 }
 
+[data-theme="dark"] .about-card {
+    box-shadow: 0 18px 36px -20px rgba(2, 6, 23, 0.95);
+}
+
 .about-card .section-title {
     font-family: var(--font-heading);
     font-size: 2.2rem;
@@ -59,6 +63,10 @@
     border: 1px solid var(--border);
     position: relative;
     text-align: center;
+}
+
+[data-theme="dark"] .quote-box {
+    background: rgba(15, 23, 42, 0.55);
 }
 
 .quote-box::before {
@@ -115,11 +123,96 @@
     color: var(--accent);
 }
 
+.about-detail-grid {
+    margin-top: 42px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.about-detail-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 22px 20px;
+}
+
+.about-detail-card h3 {
+    font-family: var(--font-heading);
+    color: var(--text-heading);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.about-detail-card p {
+    color: var(--text-main);
+    font-size: 0.96rem;
+    margin: 0;
+}
+
+.about-values-list {
+    list-style: disc;
+    padding-left: 18px;
+    color: var(--text-main);
+    margin: 0;
+}
+
+.about-values-list li {
+    margin-bottom: 6px;
+}
+
+.about-milestones {
+    margin-top: 48px;
+}
+
+.about-milestone-head {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.about-milestone-head h3 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.45rem, 3vw, 2rem);
+    color: var(--text-heading);
+}
+
+.about-milestone-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.about-milestone-list article {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    border-radius: 18px;
+    padding: 16px;
+}
+
+.about-milestone-list span {
+    display: inline-flex;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: 999px;
+    padding: 3px 10px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.about-milestone-list p {
+    color: var(--text-main);
+    margin: 0;
+    font-size: 0.92rem;
+}
+
 @media (max-width: 768px) {
     .about-card { padding: 48px 32px; border-radius: 32px; }
     .about-card .section-title { font-size: 1.8rem; }
     .about-text { font-size: 1.1rem; }
     .quote-content { font-size: 1.3rem; }
+    .about-detail-grid { grid-template-columns: 1fr; }
+    .about-milestone-list { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 500px) {

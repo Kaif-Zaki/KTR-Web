@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="<?= asset_url('/public/css/user/projects.css') ?>">
+<?php $webSettings = website_settings() ?? []; ?>
 
 <!-- ── HERO ── -->
 <section class="projects-hero-section">
@@ -34,6 +35,28 @@
             </form>
         </div>
     </div>
+</section>
+
+<?php
+    $totalProjects = 0;
+    foreach ($projects as $categoryItems) {
+        $totalProjects += count($categoryItems);
+    }
+?>
+
+<section class="projects-insights reveal-container">
+    <article class="insight-card">
+        <h3><?= $totalProjects ?></h3>
+        <p>Total initiatives currently visible to the community.</p>
+    </article>
+    <article class="insight-card">
+        <h3><?= count($projects) ?></h3>
+        <p>Active project categories with focused program goals.</p>
+    </article>
+    <article class="insight-card">
+        <h3><?= e($webSettings['projects_insight3_title'] ?? 'Transparent') ?></h3>
+        <p><?= e($webSettings['projects_insight3_body'] ?? 'Each project card includes status context and quick access to full details.') ?></p>
+    </article>
 </section>
 
 <!-- ── PROJECTS GRID ── -->

@@ -1,10 +1,26 @@
 <link rel="stylesheet" href="<?= asset_url('/public/css/user/members.css') ?>">
+<?php $webSettings = website_settings() ?? []; ?>
 
 <section class="members-hero-section">
     <div class="page-shell">
         <h1 class="page-title reveal-text">Our Society Members</h1>
         <p class="hero-lead reveal-text">The dedicated individuals driving hope and unity through collective welfare service since 2016.</p>
     </div>
+</section>
+
+<section class="members-overview reveal-container">
+    <article class="members-overview-card">
+        <h3><?= count($members) ?>+</h3>
+        <p>Dedicated members actively supporting community welfare activities.</p>
+    </article>
+    <article class="members-overview-card">
+        <h3><?= e($webSettings['members_overview2_title'] ?? 'Volunteer-led') ?></h3>
+        <p><?= e($webSettings['members_overview2_body'] ?? 'Our initiatives are organized and delivered through collaborative volunteer leadership.') ?></p>
+    </article>
+    <article class="members-overview-card">
+        <h3><?= e($webSettings['members_overview3_title'] ?? 'Open to all') ?></h3>
+        <p><?= e($webSettings['members_overview3_body'] ?? 'We welcome compassionate people who want to contribute skills, time, or guidance.') ?></p>
+    </article>
 </section>
 
 <div class="members-shell">
@@ -34,4 +50,3 @@
         <?php endif; ?>
     </div>
 </div>
-

@@ -100,6 +100,75 @@
 </section>
 
 <!-- ═══════════════════════════════════════════════
+     JOURNEY HIGHLIGHTS
+     ════════════════════════════════════════════════ -->
+<section class="section-wrapper reveal">
+    <div class="detail-section-head">
+        <span class="hero-kicker"><?= e($settings['journey_kicker'] ?? 'Journey Highlights') ?></span>
+        <h2><?= e($settings['journey_title'] ?? 'How our community story keeps growing') ?></h2>
+        <p><?= e($settings['journey_lead'] ?? 'From the first volunteer circle to today, every milestone reflects consistent grassroots action and trusted partnerships.') ?></p>
+    </div>
+
+    <div class="timeline-grid reveal reveal-stagger">
+        <article class="timeline-card">
+            <span class="timeline-year"><?= e($settings['journey_item1_year'] ?? '2016') ?></span>
+            <h3><?= e($settings['journey_item1_title'] ?? 'Society Formation') ?></h3>
+            <p><?= e($settings['journey_item1_body'] ?? 'KUWS started with local volunteers focused on urgent household support and shared welfare activities.') ?></p>
+        </article>
+        <article class="timeline-card">
+            <span class="timeline-year"><?= e($settings['journey_item2_year'] ?? '2019') ?></span>
+            <h3><?= e($settings['journey_item2_title'] ?? 'Structured Programs') ?></h3>
+            <p><?= e($settings['journey_item2_body'] ?? 'We expanded into recurring education, relief, and family assistance programs with clearer planning cycles.') ?></p>
+        </article>
+        <article class="timeline-card">
+            <span class="timeline-year"><?= e($settings['journey_item3_year'] ?? 'Today') ?></span>
+            <h3><?= e($settings['journey_item3_title'] ?? 'Long-Term Impact') ?></h3>
+            <p><?= e($settings['journey_item3_body'] ?? 'Our team now balances immediate aid and sustainable initiatives to build resilience across the community.') ?></p>
+        </article>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     HOW WE WORK
+     ════════════════════════════════════════════════ -->
+<section class="section-wrapper reveal">
+    <div class="detail-section-head">
+        <span class="hero-kicker"><?= e($settings['approach_kicker'] ?? 'Our Approach') ?></span>
+        <h2><?= e($settings['approach_title'] ?? 'A transparent model for meaningful outcomes') ?></h2>
+    </div>
+
+    <div class="work-model-grid reveal reveal-stagger">
+        <article class="work-model-card">
+            <h3><?= e($settings['approach_item1_title'] ?? 'Listen First') ?></h3>
+            <p><?= e($settings['approach_item1_body'] ?? 'We assess needs directly with families and neighbors before planning any intervention.') ?></p>
+        </article>
+        <article class="work-model-card">
+            <h3><?= e($settings['approach_item2_title'] ?? 'Mobilize Fast') ?></h3>
+            <p><?= e($settings['approach_item2_body'] ?? 'Volunteers, donors, and partners coordinate quickly to ensure support reaches people on time.') ?></p>
+        </article>
+        <article class="work-model-card">
+            <h3><?= e($settings['approach_item3_title'] ?? 'Measure & Improve') ?></h3>
+            <p><?= e($settings['approach_item3_body'] ?? 'Each cycle is reviewed so future programs deliver stronger and more sustainable community results.') ?></p>
+        </article>
+        <article class="work-model-card work-model-card--highlight">
+            <h3><?= e($settings['approach_item4_title'] ?? 'Active Focus Areas') ?></h3>
+            <p>
+                <?php
+                    $approachItem4Body = trim((string) ($settings['approach_item4_body'] ?? ''));
+                    if ($approachItem4Body === '') {
+                        echo e((string) count($features)) . ' key initiative areas are currently active with recurring community engagement.';
+                    } elseif (stripos($approachItem4Body, '{count}') !== false) {
+                        echo e(str_replace('{count}', (string) count($features), $approachItem4Body));
+                    } else {
+                        echo e($approachItem4Body);
+                    }
+                ?>
+            </p>
+        </article>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
      FINAL CTA / VISION
      ════════════════════════════════════════════════ -->
 <section class="section-wrapper cta-section">

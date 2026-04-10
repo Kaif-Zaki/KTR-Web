@@ -298,6 +298,77 @@
             </div>
         </fieldset>
 
+        <fieldset class="form-section">
+            <legend>Public Page Detail Content</legend>
+            <div class="form-group">
+                <label for="projects_insight3_title">Projects Insight Card 3 Title</label>
+                <input type="text" id="projects_insight3_title" name="projects_insight3_title" value="<?php echo htmlspecialchars($settings['projects_insight3_title'] ?? ''); ?>">
+            </div>
+            <div class="form-group">
+                <label for="projects_insight3_body">Projects Insight Card 3 Description</label>
+                <textarea id="projects_insight3_body" name="projects_insight3_body" rows="2"><?php echo htmlspecialchars($settings['projects_insight3_body'] ?? ''); ?></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="gallery_overview1_title">Gallery Overview Card 1 Title</label>
+                <input type="text" id="gallery_overview1_title" name="gallery_overview1_title" value="<?php echo htmlspecialchars($settings['gallery_overview1_title'] ?? ''); ?>">
+            </div>
+            <div class="form-group">
+                <label for="gallery_overview1_body">Gallery Overview Card 1 Description</label>
+                <textarea id="gallery_overview1_body" name="gallery_overview1_body" rows="2"><?php echo htmlspecialchars($settings['gallery_overview1_body'] ?? ''); ?></textarea>
+            </div>
+            <div class="form-group">
+                <label for="gallery_overview3_title">Gallery Overview Card 3 Title</label>
+                <input type="text" id="gallery_overview3_title" name="gallery_overview3_title" value="<?php echo htmlspecialchars($settings['gallery_overview3_title'] ?? ''); ?>">
+            </div>
+            <div class="form-group">
+                <label for="gallery_overview3_body">Gallery Overview Card 3 Description</label>
+                <textarea id="gallery_overview3_body" name="gallery_overview3_body" rows="2"><?php echo htmlspecialchars($settings['gallery_overview3_body'] ?? ''); ?></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="members_overview2_title">Members Overview Card 2 Title</label>
+                <input type="text" id="members_overview2_title" name="members_overview2_title" value="<?php echo htmlspecialchars($settings['members_overview2_title'] ?? ''); ?>">
+            </div>
+            <div class="form-group">
+                <label for="members_overview2_body">Members Overview Card 2 Description</label>
+                <textarea id="members_overview2_body" name="members_overview2_body" rows="2"><?php echo htmlspecialchars($settings['members_overview2_body'] ?? ''); ?></textarea>
+            </div>
+            <div class="form-group">
+                <label for="members_overview3_title">Members Overview Card 3 Title</label>
+                <input type="text" id="members_overview3_title" name="members_overview3_title" value="<?php echo htmlspecialchars($settings['members_overview3_title'] ?? ''); ?>">
+            </div>
+            <div class="form-group">
+                <label for="members_overview3_body">Members Overview Card 3 Description</label>
+                <textarea id="members_overview3_body" name="members_overview3_body" rows="2"><?php echo htmlspecialchars($settings['members_overview3_body'] ?? ''); ?></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="contact_assurance1_title">Contact Assurance Card 1 Title</label>
+                <input type="text" id="contact_assurance1_title" name="contact_assurance1_title" value="<?php echo htmlspecialchars($settings['contact_assurance1_title'] ?? ''); ?>">
+            </div>
+            <div class="form-group">
+                <label for="contact_assurance1_body">Contact Assurance Card 1 Description</label>
+                <textarea id="contact_assurance1_body" name="contact_assurance1_body" rows="2"><?php echo htmlspecialchars($settings['contact_assurance1_body'] ?? ''); ?></textarea>
+            </div>
+            <div class="form-group">
+                <label for="contact_assurance2_title">Contact Assurance Card 2 Title</label>
+                <input type="text" id="contact_assurance2_title" name="contact_assurance2_title" value="<?php echo htmlspecialchars($settings['contact_assurance2_title'] ?? ''); ?>">
+            </div>
+            <div class="form-group">
+                <label for="contact_assurance2_body">Contact Assurance Card 2 Description</label>
+                <textarea id="contact_assurance2_body" name="contact_assurance2_body" rows="2"><?php echo htmlspecialchars($settings['contact_assurance2_body'] ?? ''); ?></textarea>
+            </div>
+            <div class="form-group">
+                <label for="contact_assurance3_title">Contact Assurance Card 3 Title</label>
+                <input type="text" id="contact_assurance3_title" name="contact_assurance3_title" value="<?php echo htmlspecialchars($settings['contact_assurance3_title'] ?? ''); ?>">
+            </div>
+            <div class="form-group">
+                <label for="contact_assurance3_body">Contact Assurance Card 3 Description</label>
+                <textarea id="contact_assurance3_body" name="contact_assurance3_body" rows="2"><?php echo htmlspecialchars($settings['contact_assurance3_body'] ?? ''); ?></textarea>
+            </div>
+        </fieldset>
+
         <!-- Form Actions -->
         <div class="form-actions">
             <button type="submit" class="btn btn-primary">

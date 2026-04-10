@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="<?= asset_url('/public/css/user/contact.css') ?>">
+<?php $webSettings = website_settings() ?? []; ?>
 
 <div class="contact-page-wrapper">
     
@@ -108,3 +109,18 @@
 
     </div>
 </div>
+
+<section class="contact-assurance-strip reveal-container">
+    <article>
+        <h3><?= e($webSettings['contact_assurance1_title'] ?? 'Quick Response') ?></h3>
+        <p><?= e($webSettings['contact_assurance1_body'] ?? 'We review incoming messages regularly and reply as fast as possible.') ?></p>
+    </article>
+    <article>
+        <h3><?= e($webSettings['contact_assurance2_title'] ?? 'Meaningful Guidance') ?></h3>
+        <p><?= e($webSettings['contact_assurance2_body'] ?? 'Whether you want to donate, volunteer, or partner, we guide you to the right next step.') ?></p>
+    </article>
+    <article>
+        <h3><?= e($webSettings['contact_assurance3_title'] ?? 'Community First') ?></h3>
+        <p><?= e($webSettings['contact_assurance3_body'] ?? 'Every conversation is handled with care, respect, and a practical action mindset.') ?></p>
+    </article>
+</section>

@@ -41,6 +41,10 @@
             <div class="editor-card">
                 <div class="editor-card-title">🏛️ Legacy Section</div>
                 <div class="form-group">
+                    <label class="form-label">Section Kicker</label>
+                    <input type="text" name="legacy_kicker" class="form-input" value="<?= e($settings['legacy_kicker'] ?? '') ?>">
+                </div>
+                <div class="form-group">
                     <label class="form-label">About Image</label>
                     <input type="file" name="legacy_image" class="form-input" accept="image/*" style="padding: 9px 16px;">
                     <?php if ($settings['legacy_image']): ?>
@@ -81,6 +85,10 @@
             <div class="editor-card">
                 <div class="editor-card-title">🎯 Focus Areas Header</div>
                 <div class="form-group">
+                    <label class="form-label">Section Kicker</label>
+                    <input type="text" name="initiatives_kicker" class="form-input" value="<?= e($settings['initiatives_kicker'] ?? '') ?>">
+                </div>
+                <div class="form-group">
                     <label class="form-label">Section Title</label>
                     <input type="text" name="initiatives_title" class="form-input" value="<?= e($settings['initiatives_title']) ?>">
                 </div>
@@ -100,6 +108,115 @@
                 <div class="form-group">
                     <label class="form-label">CTA Paragraph</label>
                     <textarea name="cta_body" class="form-input" rows="2"><?= e($settings['cta_body']) ?></textarea>
+                </div>
+            </div>
+
+            <div class="editor-card">
+                <div class="editor-card-title">🛤️ Journey Highlights Section</div>
+                <div class="form-group">
+                    <label class="form-label">Section Kicker</label>
+                    <input type="text" name="journey_kicker" class="form-input" value="<?= e($settings['journey_kicker'] ?? '') ?>">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Section Title</label>
+                    <input type="text" name="journey_title" class="form-input" value="<?= e($settings['journey_title'] ?? '') ?>">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Section Lead</label>
+                    <textarea name="journey_lead" class="form-input" rows="2"><?= e($settings['journey_lead'] ?? '') ?></textarea>
+                </div>
+
+                <div class="input-grid">
+                    <div class="form-group">
+                        <label class="form-label">Item 1 Year</label>
+                        <input type="text" name="journey_item1_year" class="form-input" value="<?= e($settings['journey_item1_year'] ?? '') ?>">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Item 1 Title</label>
+                        <input type="text" name="journey_item1_title" class="form-input" value="<?= e($settings['journey_item1_title'] ?? '') ?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Item 1 Description</label>
+                    <textarea name="journey_item1_body" class="form-input" rows="2"><?= e($settings['journey_item1_body'] ?? '') ?></textarea>
+                </div>
+
+                <div class="input-grid">
+                    <div class="form-group">
+                        <label class="form-label">Item 2 Year</label>
+                        <input type="text" name="journey_item2_year" class="form-input" value="<?= e($settings['journey_item2_year'] ?? '') ?>">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Item 2 Title</label>
+                        <input type="text" name="journey_item2_title" class="form-input" value="<?= e($settings['journey_item2_title'] ?? '') ?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Item 2 Description</label>
+                    <textarea name="journey_item2_body" class="form-input" rows="2"><?= e($settings['journey_item2_body'] ?? '') ?></textarea>
+                </div>
+
+                <div class="input-grid">
+                    <div class="form-group">
+                        <label class="form-label">Item 3 Year</label>
+                        <input type="text" name="journey_item3_year" class="form-input" value="<?= e($settings['journey_item3_year'] ?? '') ?>">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Item 3 Title</label>
+                        <input type="text" name="journey_item3_title" class="form-input" value="<?= e($settings['journey_item3_title'] ?? '') ?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Item 3 Description</label>
+                    <textarea name="journey_item3_body" class="form-input" rows="2"><?= e($settings['journey_item3_body'] ?? '') ?></textarea>
+                </div>
+            </div>
+
+            <div class="editor-card">
+                <div class="editor-card-title">🧭 Our Approach Section</div>
+                <div class="form-group">
+                    <label class="form-label">Section Kicker</label>
+                    <input type="text" name="approach_kicker" class="form-input" value="<?= e($settings['approach_kicker'] ?? '') ?>">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Section Title</label>
+                    <input type="text" name="approach_title" class="form-input" value="<?= e($settings['approach_title'] ?? '') ?>">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Card 1 Title</label>
+                    <input type="text" name="approach_item1_title" class="form-input" value="<?= e($settings['approach_item1_title'] ?? '') ?>">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Card 1 Description</label>
+                    <textarea name="approach_item1_body" class="form-input" rows="2"><?= e($settings['approach_item1_body'] ?? '') ?></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Card 2 Title</label>
+                    <input type="text" name="approach_item2_title" class="form-input" value="<?= e($settings['approach_item2_title'] ?? '') ?>">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Card 2 Description</label>
+                    <textarea name="approach_item2_body" class="form-input" rows="2"><?= e($settings['approach_item2_body'] ?? '') ?></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Card 3 Title</label>
+                    <input type="text" name="approach_item3_title" class="form-input" value="<?= e($settings['approach_item3_title'] ?? '') ?>">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Card 3 Description</label>
+                    <textarea name="approach_item3_body" class="form-input" rows="2"><?= e($settings['approach_item3_body'] ?? '') ?></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Card 4 Title</label>
+                    <input type="text" name="approach_item4_title" class="form-input" value="<?= e($settings['approach_item4_title'] ?? '') ?>">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Card 4 Description</label>
+                    <textarea name="approach_item4_body" class="form-input" rows="2"><?= e($settings['approach_item4_body'] ?? '') ?></textarea>
                 </div>
             </div>
         </form>

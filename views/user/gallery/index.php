@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="<?= asset_url('/public/css/user/gallery.css') ?>">
+<?php $webSettings = website_settings() ?? []; ?>
 
 <section class="gallery-hero-section">
     <div class="page-shell">
@@ -6,6 +7,21 @@
         <h1 class="page-title reveal-text">Moments of <span class="accent-text">Impact.</span></h1>
         <p class="hero-lead reveal-text">A collective record of moments that define our journey in community service.</p>
     </div>
+</section>
+
+<section class="gallery-overview reveal-container">
+    <article class="gallery-overview-card">
+        <h3><?= e($webSettings['gallery_overview1_title'] ?? 'Living archive of service') ?></h3>
+        <p><?= e($webSettings['gallery_overview1_body'] ?? 'Every image captures volunteer effort, community participation, and progress across initiatives.') ?></p>
+    </article>
+    <article class="gallery-overview-card">
+        <h3><?= count($images) ?></h3>
+        <p>Documented moments currently available in this public gallery.</p>
+    </article>
+    <article class="gallery-overview-card">
+        <h3><?= e($webSettings['gallery_overview3_title'] ?? 'People-centered stories') ?></h3>
+        <p><?= e($webSettings['gallery_overview3_body'] ?? 'Captions and tags help connect each photo to the welfare journey behind it.') ?></p>
+    </article>
 </section>
 
 <div class="gallery-shell">

@@ -26,6 +26,35 @@
     font-weight: 400;
 }
 
+.gallery-overview {
+    max-width: 1400px;
+    margin: 0 auto 28px;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.gallery-overview-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.gallery-overview-card h3 {
+    font-family: var(--font-heading);
+    color: var(--text-heading);
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.gallery-overview-card p {
+    color: var(--text-main);
+    margin: 0;
+    font-size: 0.92rem;
+}
+
 /* ── Masonry Grid ── */
 .gallery-shell {
     max-width: 1400px;
@@ -47,6 +76,11 @@
 
     .gallery-shell {
         padding: 0 14px 40px;
+    }
+
+    .gallery-overview {
+        padding: 0 14px;
+        grid-template-columns: 1fr;
     }
 
     .gallery-masonry { columns: 1; }

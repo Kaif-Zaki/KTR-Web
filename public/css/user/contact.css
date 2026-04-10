@@ -135,6 +135,14 @@
     backdrop-filter: blur(20px);
 }
 
+[data-theme="dark"] .method-icon {
+    box-shadow: 0 8px 18px -12px rgba(15, 23, 42, 0.9);
+}
+
+[data-theme="dark"] .social-btn {
+    background: rgba(15, 23, 42, 0.55);
+}
+
 .glass-bg {
     position: absolute;
     inset: 0;
@@ -237,6 +245,35 @@
 .wa-icon { color: #25d366; transition: var(--trans-fast); }
 .whatsapp-quick-link:hover .wa-icon { color: #fff; }
 
+.contact-assurance-strip {
+    max-width: 1100px;
+    margin: 10px auto 0;
+    padding: 0 24px 20px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.contact-assurance-strip article {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 16px;
+}
+
+.contact-assurance-strip h3 {
+    color: var(--text-heading);
+    font-family: var(--font-heading);
+    font-size: 1.06rem;
+    margin-bottom: 8px;
+}
+
+.contact-assurance-strip p {
+    color: var(--text-main);
+    margin: 0;
+    font-size: 0.9rem;
+}
+
 /* ── Responsive ── */
 @media (max-width: 960px) {
     .contact-page-wrapper {
@@ -280,6 +317,12 @@
     }
 
     .social-links { justify-content: center; }
+
+    .contact-assurance-strip {
+        grid-template-columns: 1fr;
+        padding: 0 18px 18px;
+        margin-top: 0;
+    }
 }
 
 @media (max-width: 580px) {
@@ -316,5 +359,9 @@
         width: 100%;
         font-size: 0.85rem;
         padding: 12px;
+    }
+
+    .contact-assurance-strip {
+        padding: 0 12px 14px;
     }
 }

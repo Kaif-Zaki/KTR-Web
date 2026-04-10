@@ -55,6 +55,22 @@ class AdminSettingsController
             'primary_color' => trim((string) ($_POST['primary_color'] ?? '#1e40af')),
             'secondary_color' => trim((string) ($_POST['secondary_color'] ?? '#7c3aed')),
             'accent_color' => trim((string) ($_POST['accent_color'] ?? '#f59e0b')),
+            'projects_insight3_title' => trim((string) ($_POST['projects_insight3_title'] ?? '')),
+            'projects_insight3_body' => trim((string) ($_POST['projects_insight3_body'] ?? '')),
+            'gallery_overview1_title' => trim((string) ($_POST['gallery_overview1_title'] ?? '')),
+            'gallery_overview1_body' => trim((string) ($_POST['gallery_overview1_body'] ?? '')),
+            'gallery_overview3_title' => trim((string) ($_POST['gallery_overview3_title'] ?? '')),
+            'gallery_overview3_body' => trim((string) ($_POST['gallery_overview3_body'] ?? '')),
+            'members_overview2_title' => trim((string) ($_POST['members_overview2_title'] ?? '')),
+            'members_overview2_body' => trim((string) ($_POST['members_overview2_body'] ?? '')),
+            'members_overview3_title' => trim((string) ($_POST['members_overview3_title'] ?? '')),
+            'members_overview3_body' => trim((string) ($_POST['members_overview3_body'] ?? '')),
+            'contact_assurance1_title' => trim((string) ($_POST['contact_assurance1_title'] ?? '')),
+            'contact_assurance1_body' => trim((string) ($_POST['contact_assurance1_body'] ?? '')),
+            'contact_assurance2_title' => trim((string) ($_POST['contact_assurance2_title'] ?? '')),
+            'contact_assurance2_body' => trim((string) ($_POST['contact_assurance2_body'] ?? '')),
+            'contact_assurance3_title' => trim((string) ($_POST['contact_assurance3_title'] ?? '')),
+            'contact_assurance3_body' => trim((string) ($_POST['contact_assurance3_body'] ?? '')),
         ];
 
         $uploadErrors = [];
